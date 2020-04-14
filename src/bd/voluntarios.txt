@@ -1,0 +1,2 @@
+123,elepepes,12314,pepe,garcias,martinez,ONCE,fisica,disponible*
+333,marialoca,234432,maria,martinez,lopez,ONCE,sensorial,ocupado*

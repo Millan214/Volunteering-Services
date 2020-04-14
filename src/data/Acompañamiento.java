@@ -4,7 +4,7 @@ public class Acompañamiento {
 
     private int id;
     private String estadoAcom;
-    private int calificacion;
+    private int clasificacion = -1;
 
     public Acompañamiento(int id, String estadoAcom) {
         this.id = id;
@@ -13,7 +13,14 @@ public class Acompañamiento {
 
     @Override
     public String toString() {
-        return "Acompa\u00f1amiento{" + "id=" + id + ", estadoAcom=" + estadoAcom + ", calificacion=" + calificacion + '}';
+        return "Acompa\u00f1amiento{" + "id=" + id + ", estadoAcom=" + estadoAcom + ", calificacion=" + clasificacion + '}';
+    }
+    
+    public String toStringFichero(int idCuen , String separador , String fin){
+        if (clasificacion == -1) {
+            return idCuen + ">" + id + separador + estadoAcom + fin ;
+        }
+        return idCuen + ">" + id + separador + estadoAcom + separador + clasificacion + fin;
     }
 
     public int getId() {
@@ -32,12 +39,19 @@ public class Acompañamiento {
         this.estadoAcom = estadoAcom;
     }
 
-    public int getCalificacion() {
-        return calificacion;
+    public int getClasificacion() {
+        return clasificacion;
     }
 
-    public void setCalificacion(int calificacion) {
-        this.calificacion = calificacion;
+    public void setClasificacion(int clasificacion) {
+        for (int i = 0; i < 5; i++) {
+            if (clasificacion >= 0 && clasificacion <= 5) {
+                this.clasificacion = clasificacion;
+                break;
+            }
+            System.out.println(i+". La clasificacion ha de estar entre 0 y 5");
+        }
+        System.out.println("Has agotado los 5 intentos");
     }
     
 }

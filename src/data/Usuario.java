@@ -2,20 +2,23 @@ package data;
 public class Usuario extends Cuenta{
 
     private int edad;
-    private String tipoDiscap;
+    private Discapacidad tipoDiscap;
     private String Direccion;
     private int telMov;
     private int telFij;
 
-    public Usuario(int edad,
+    public enum Discapacidad{ fisica , sensorial , intelecutal , diabetes , multiple , otras };
+    
+    public Usuario(
                    int idCuenta,
                    String nomCuenta,
                    String contraseña,
                    String nombre,
                    String ape1,
                    String ape2,
+                   int edad,
                    Asociacion asociacion,
-                   String tipoDiscap,
+                   Discapacidad tipoDiscap,
                    String direccion,
                    int telMov,
                    int telFij)
@@ -47,7 +50,7 @@ public class Usuario extends Cuenta{
         return edad;
     }
 
-    public String getTipoDiscap() {
+    public Discapacidad getTipoDiscap() {
         return tipoDiscap;
     }
 

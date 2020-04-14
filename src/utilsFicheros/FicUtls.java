@@ -1,5 +1,6 @@
 package utilsFicheros;
 
+import data.Voluntario;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -81,21 +82,5 @@ public class FicUtls {
         bw.write("");
         bw.close();
     }
-
-//    public void deFicheroAListaPersonas(File f, ArrayList arr) throws FileNotFoundException {
-//        
-//        Scanner sc = new Scanner(f);
-//        sc.useDelimiter("[,%]");
-//        
-//        while(sc.hasNext()){
-//            String nom = sc.next();
-//            nom = nom.replaceAll("\n", "");
-//            
-//            String ed = sc.next();
-//            int edad = Integer.parseInt(ed);
-//            
-//            arr.add( new Persona( nom , edad ) );
-//        }
-//    }
     
 }

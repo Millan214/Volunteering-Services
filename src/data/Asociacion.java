@@ -1,6 +1,11 @@
 package data;
 
+import data.Usuario.Discapacidad;
+import data.Voluntario.Estado;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import utilsFicheros.FicUtls;
 
 public class Asociacion {
 
@@ -15,12 +20,51 @@ public class Asociacion {
         this.cif = cif;
     }
     
-    public void addVol(){
-    
+    public void addVol( int idCuenta,
+                       String nomCuenta,
+                       String contraseña,
+                       String nombre,
+                       String ape1,
+                       String ape2,
+                       Asociacion asociacion,
+                       Discapacidad prefAcomp,
+                       Estado estado )
+    {
+        voluntarios.add( new Voluntario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2 , asociacion , prefAcomp , estado ) );
     }
     
-    public void addUsr(){
+    public void addVol( int idCuenta,
+                       String nomCuenta,
+                       String contraseña,
+                       String nombre,
+                       String ape1,
+                       String ape2,
+                       Asociacion asociacion,
+                       Discapacidad prefAcomp,
+                       Estado estado,
+                       File f) throws IOException
+    {
+        voluntarios.add( new Voluntario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2 , asociacion , prefAcomp , estado ) );
+        FicUtls fic = new FicUtls();
+        fic.añadir(asociacion.voluntarios.get( voluntarios.size()-1 ).toStringFichero(",","*"), f);
+    }
     
+    
+    public void addUsr( int idCuenta,
+                   String nomCuenta,
+                   String contraseña,
+                   String nombre,
+                   String ape1,
+                   String ape2,
+                   int edad,
+                   Asociacion asociacion,
+                   Discapacidad tipoDiscap,
+                   String direccion,
+                   int telMov,
+                   int telFij)
+    {
+        usuarios.add( new Usuario ( idCuenta , nomCuenta , contraseña ,
+                nombre , ape1 , ape2, edad , asociacion , tipoDiscap , direccion , telMov , telFij ) );
     }
     
     public void showVolunt (){
@@ -33,7 +77,7 @@ public class Asociacion {
         for (int i = 0; i < voluntarios.size(); i++) {
             System.out.println( voluntarios.get(i).getNombre() );
             for (int j = 0; j < voluntarios.get(i).acompañamientos.size(); j++) {
-               voluntarios.get(i).getAcom(j);     
+                System.out.println("  - "+voluntarios.get(i).getAcom(j));
             }
         }
     }

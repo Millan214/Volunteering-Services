@@ -1,11 +1,17 @@
 package data;
 
+import data.Usuario.Discapacidad;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import utilsFicheros.FicUtls;
 
 public class Voluntario extends Cuenta{
 
-    private String prefAcomp;
-    private String estado;
+    private Discapacidad prefAcomp;
+    private Estado estado;
+    
+    public enum Estado{ disponible , ocupado };
     
     ArrayList<Acompañamiento> acompañamientos = new ArrayList <>();
     
@@ -16,8 +22,8 @@ public class Voluntario extends Cuenta{
                        String ape1,
                        String ape2,
                        Asociacion asociacion,
-                       String prefAcomp,
-                       String estado )
+                       Discapacidad prefAcomp,
+                       Estado estado )
     {
         super(idCuenta, nomCuenta, contraseña, nombre, ape1, ape2, asociacion);
         this.estado = estado;
@@ -26,6 +32,13 @@ public class Voluntario extends Cuenta{
     
     public void addAcom( int id , String estado){
         this.acompañamientos.add( new Acompañamiento( id , estado ) );
+        FicUtls fic = new FicUtls();
+    }
+    
+    public void addAcom( int id , String estado , File facom) throws IOException{
+        this.acompañamientos.add( new Acompañamiento( id , estado ) );
+        FicUtls fic = new FicUtls();
+        fic.añadir(acompañamientos.get( acompañamientos.size()-1 ).toStringFichero( this.getIdCuenta() ,",","*"), facom);
     }
     
     public Acompañamiento getAcom(int i){
@@ -45,15 +58,28 @@ public class Voluntario extends Cuenta{
                              ", estado="+this.getEstado()+'}';
     }
     
+    public String toStringFichero(String separador , String fin) {
+        return super.getIdCuenta() + separador
+             + super.getNomCuenta() + separador
+             + super.getContraseña() + separador
+             + super.getNombre() + separador
+             + super.getApe1() + separador
+             + super.getApe2() + separador
+             + this.getNomAsociacion() + separador
+             + this.getPrefAcomp() + separador
+             + this.getEstado() + fin ;
+             
+    }
+    
     public String getNomAsociacion(){
         return asociacion.getNom();
     }
 
-    public String getPrefAcomp() {
+    public Discapacidad getPrefAcomp() {
         return prefAcomp;
     }
 
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
