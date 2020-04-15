@@ -3,10 +3,12 @@ package data;
 public class Acompañamiento {
 
     private int id;
-    private String estadoAcom;
+    private EstadoAcom estadoAcom;
     private int clasificacion = -1;
+    
+    public enum EstadoAcom{ en_curso , terminado };
 
-    public Acompañamiento(int id, String estadoAcom) {
+    public Acompañamiento(int id, EstadoAcom estadoAcom) {
         this.id = id;
         this.estadoAcom = estadoAcom;
     }
@@ -31,11 +33,11 @@ public class Acompañamiento {
         this.id = id;
     }
 
-    public String getEstadoAcom() {
+    public EstadoAcom getEstadoAcom() {
         return estadoAcom;
     }
 
-    public void setEstadoAcom(String estadoAcom) {
+    public void setEstadoAcom(EstadoAcom estadoAcom) {
         this.estadoAcom = estadoAcom;
     }
 

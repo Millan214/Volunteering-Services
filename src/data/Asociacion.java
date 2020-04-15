@@ -46,7 +46,7 @@ public class Asociacion {
     {
         voluntarios.add( new Voluntario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2 , asociacion , prefAcomp , estado ) );
         FicUtls fic = new FicUtls();
-        fic.añadir(asociacion.voluntarios.get( voluntarios.size()-1 ).toStringFichero(",","*"), f);
+        fic.añadir(voluntarios.get( voluntarios.size()-1 ).toStringFichero(",","*"), f);
     }
     
     
@@ -65,6 +65,26 @@ public class Asociacion {
     {
         usuarios.add( new Usuario ( idCuenta , nomCuenta , contraseña ,
                 nombre , ape1 , ape2, edad , asociacion , tipoDiscap , direccion , telMov , telFij ) );
+    }
+    
+        public void addUsr( int idCuenta,
+                   String nomCuenta,
+                   String contraseña,
+                   String nombre,
+                   String ape1,
+                   String ape2,
+                   int edad,
+                   Asociacion asociacion,
+                   Discapacidad tipoDiscap,
+                   String direccion,
+                   int telMov,
+                   int telFij,
+                   File f) throws IOException
+    {
+        usuarios.add( new Usuario ( idCuenta , nomCuenta , contraseña ,
+                nombre , ape1 , ape2, edad , asociacion , tipoDiscap , direccion , telMov , telFij ) );
+        FicUtls fic = new FicUtls();
+        fic.añadir( usuarios.get( usuarios.size()-1 ).toStringFichero(",", "*") , f);
     }
     
     public void showVolunt (){
@@ -91,6 +111,11 @@ public class Asociacion {
     @Override
     public String toString() {
         return "Asociacion{" + "nom=" + nom + ", cif=" + cif + '}';
+    }
+    
+    public String toStringFichero(String separador , String fin){
+        char com = (char)34;
+        return com + this.nom + com + separador + com + this.cif + com + fin;
     }
 
     public String getNom() {

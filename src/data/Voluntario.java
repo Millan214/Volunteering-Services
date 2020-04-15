@@ -1,5 +1,6 @@
 package data;
 
+import data.Acompañamiento.EstadoAcom;
 import data.Usuario.Discapacidad;
 import java.io.File;
 import java.io.IOException;
@@ -30,12 +31,12 @@ public class Voluntario extends Cuenta{
         this.prefAcomp  = prefAcomp;
     }
     
-    public void addAcom( int id , String estado){
+    public void addAcom( int id , EstadoAcom estado){
         this.acompañamientos.add( new Acompañamiento( id , estado ) );
         FicUtls fic = new FicUtls();
     }
     
-    public void addAcom( int id , String estado , File facom) throws IOException{
+    public void addAcom( int id , EstadoAcom estado , File facom) throws IOException{
         this.acompañamientos.add( new Acompañamiento( id , estado ) );
         FicUtls fic = new FicUtls();
         fic.añadir(acompañamientos.get( acompañamientos.size()-1 ).toStringFichero( this.getIdCuenta() ,",","*"), facom);

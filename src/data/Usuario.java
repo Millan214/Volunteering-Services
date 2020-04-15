@@ -45,6 +45,20 @@ public class Usuario extends Cuenta{
                              ", telMov=" + this.getTelMov() +
                              ", telFij=" + this.getTelFij() + '}';
     }
+    
+    public String toStringFichero(String separador , String fin){
+        return super.getIdCuenta() + separador +
+               super.getNomCuenta() + separador +
+               super.getContraseña() + separador +
+               super.getNombre() + separador +
+               super.getApe1() + separador +
+               super.getApe2() + separador +
+               this.getNomAsociacion() + separador +
+               this.getTipoDiscap() + separador +
+               this.getDireccion() + separador +
+               this.getTelMov() + separador +
+               this.getTelFij() + fin;
+    }
 
     public int getEdad() {
         return edad;
