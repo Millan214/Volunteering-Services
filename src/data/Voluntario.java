@@ -54,26 +54,26 @@ public class Voluntario extends Cuenta{
                              ", nombre=" + super.getNombre() +
                              ", ape1=" + super.getApe1() +
                              ", ape2=" + super.getApe2() + 
-                             ", asociacion="+this.getNomAsociacion() +
+                             ", asociacion="+this.getCifAsociacion() +
                              ", prefAcomp="+this.getPrefAcomp() +
                              ", estado="+this.getEstado()+'}';
     }
     
     public String toStringFichero(String separador , String fin) {
+        char com = (char)34;
         return super.getIdCuenta() + separador
-             + super.getNomCuenta() + separador
-             + super.getContraseña() + separador
-             + super.getNombre() + separador
-             + super.getApe1() + separador
-             + super.getApe2() + separador
-             + this.getNomAsociacion() + separador
+             + com + super.getNomCuenta() + com + separador
+             + com + super.getContraseña() + com + separador
+             + com + super.getNombre() + com + separador
+             + com + super.getApe1() + com + separador
+             + com + super.getApe2() + com + separador
+             + this.getCifAsociacion() + separador
              + this.getPrefAcomp() + separador
-             + this.getEstado() + fin ;
-             
+             + this.getEstado() + fin ;             
     }
     
-    public String getNomAsociacion(){
-        return asociacion.getNom();
+    public String getCifAsociacion(){
+        return asociacion.getCif();
     }
 
     public Discapacidad getPrefAcomp() {

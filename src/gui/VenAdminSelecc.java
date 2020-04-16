@@ -1,21 +1,17 @@
 package gui;
+
 import javax.swing.JFrame;
 
-/**
- *
- * @author Millán
- */
-public class VentanaGeneral extends javax.swing.JFrame {
-
-    public VentanaGeneral() {
+public class VenAdminSelecc extends JFrame{
+    public VenAdminSelecc() {
         initComponents();
-        this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setTitle("Ventana de selección de organización para el Administrador");
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
@@ -132,17 +128,17 @@ public class VentanaGeneral extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void campoCifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCifActionPerformed
+    private void campoCifActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoCifActionPerformed
+    }                                        
 
-    private void campoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreActionPerformed
+    private void campoNombreActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNombreActionPerformed
+    }                                           
  
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton botonEnviar;
     private javax.swing.JTextField campoCif;
     private javax.swing.JTextField campoNombre;
@@ -153,5 +149,5 @@ public class VentanaGeneral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelRespuesta;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration  
 }

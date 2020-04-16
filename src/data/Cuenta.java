@@ -41,8 +41,8 @@ public class Cuenta {
         return "Cuenta{" + "idCuenta=" + idCuenta + ", nomCuenta=" + nomCuenta + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", ape1=" + ape1 + ", ape2=" + ape2 + '}';
     }
 
-    public String getNomAsociacion() {
-        return asociacion.getNom();
+    public Asociacion getAsociacion() {
+        return asociacion;
     }
 
     public int getIdCuenta() {

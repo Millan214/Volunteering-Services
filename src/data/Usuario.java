@@ -1,4 +1,5 @@
 package data;
+
 public class Usuario extends Cuenta{
 
     private int edad;
@@ -7,7 +8,7 @@ public class Usuario extends Cuenta{
     private int telMov;
     private int telFij;
 
-    public enum Discapacidad{ fisica , sensorial , intelecutal , diabetes , multiple , otras };
+    public enum Discapacidad{ fisica , sensorial , intelecutal , multiple , otras };
     
     public Usuario(
                    int idCuenta,
@@ -39,7 +40,7 @@ public class Usuario extends Cuenta{
                              ", nombre=" + super.getNombre() +
                              ", ape1=" + super.getApe1() +
                              ", ape2=" + super.getApe2() + 
-                             ", asociacion=" + this.getNomAsociacion() +
+                             ", asociacion=" + this.getAsociacion() +
                              ", tipoDiscap=" + this.getTipoDiscap() +
                              ", direccion=" + this.getDireccion() +
                              ", telMov=" + this.getTelMov() +
@@ -47,15 +48,17 @@ public class Usuario extends Cuenta{
     }
     
     public String toStringFichero(String separador , String fin){
+        char com = (char)34;// " -> comillas dobles
         return super.getIdCuenta() + separador +
-               super.getNomCuenta() + separador +
-               super.getContraseña() + separador +
-               super.getNombre() + separador +
-               super.getApe1() + separador +
-               super.getApe2() + separador +
-               this.getNomAsociacion() + separador +
+               + com + super.getNomCuenta() + com + separador +
+               + com + super.getContraseña() + com + separador +
+               + com + super.getNombre() + com + separador +
+               + com + super.getApe1() + com + separador +
+               + com + super.getApe2() + com + separador +
+               this.getEdad() + separador +
+               this.getAsociacion() + separador +
                this.getTipoDiscap() + separador +
-               this.getDireccion() + separador +
+               + com + this.getDireccion() + separador +
                this.getTelMov() + separador +
                this.getTelFij() + fin;
     }

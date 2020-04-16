@@ -8,6 +8,7 @@ public class VenOpcUsr extends javax.swing.JFrame{
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setTitle("Ventana de selección de usuario");
     }
 
     @SuppressWarnings("unchecked")
@@ -15,9 +16,10 @@ public class VenOpcUsr extends javax.swing.JFrame{
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         botonUsuario = new javax.swing.JButton();
         botonVoluntario = new javax.swing.JButton();
+        botonAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -25,22 +27,21 @@ public class VenOpcUsr extends javax.swing.JFrame{
         jPanel2.setForeground(new java.awt.Color(242, 226, 239));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel2.setFont(new java.awt.Font("Malgun Gothic Semilight", 1, 36)); // NOI18N
-        jLabel2.setText("¿QUIEN ERES?");
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 36)); // NOI18N
+        jLabel1.setText("¿QUIEN ERES?");
 
         botonUsuario.setBackground(new java.awt.Color(227, 226, 244));
         botonUsuario.setText("USUARIO");
-        botonUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonUsuarioActionPerformed(evt);
-            }
-        });
 
         botonVoluntario.setBackground(new java.awt.Color(227, 226, 244));
         botonVoluntario.setText("VOLUNTARIO");
-        botonVoluntario.addActionListener(new java.awt.event.ActionListener() {
+
+        botonAdmin.setBackground(new java.awt.Color(227, 226, 244));
+        botonAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        botonAdmin.setText("ADMINISTRADOR");
+        botonAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonVoluntarioActionPerformed(evt);
+                botonAdminActionPerformed(evt);
             }
         });
 
@@ -49,25 +50,32 @@ public class VenOpcUsr extends javax.swing.JFrame{
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 113, Short.MAX_VALUE)
-                .addComponent(botonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(95, 95, 95)
+                .addComponent(botonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(130, 130, 130))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(botonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 623, Short.MAX_VALUE))
+                    .addComponent(botonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 597, Short.MAX_VALUE)
+                .addComponent(botonAdmin)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,18 +92,15 @@ public class VenOpcUsr extends javax.swing.JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {
-        
-    }                                            
-
-    private void botonVoluntarioActionPerformed(java.awt.event.ActionEvent evt) {
-        
-    }                                               
+    private void botonAdminActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
  
     // Variables declaration - do not modify                     
+    private javax.swing.JButton botonAdmin;
     private javax.swing.JButton botonUsuario;
     private javax.swing.JButton botonVoluntario;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    // End of variables declaration    
+    // End of variables declaration         
 }

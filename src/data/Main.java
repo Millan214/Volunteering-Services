@@ -2,15 +2,18 @@ package data;
 
 import static data.Acompañamiento.EstadoAcom.en_curso;
 import static data.Acompañamiento.EstadoAcom.terminado;
+import data.Usuario.Discapacidad;
 import static data.Usuario.Discapacidad.fisica;
 import static data.Usuario.Discapacidad.sensorial;
 import static data.Voluntario.Estado.disponible;
 import static data.Voluntario.Estado.ocupado;
+import gui.VenAdminSelecc;
 import gui.VenOpcUsr;
 import gui.VentanaGeneral;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import utilsFicheros.FicUtls;
 
 public class Main {
@@ -27,20 +30,31 @@ public class Main {
         File fusr = new File("src\\bd\\usuarios.txt");
         File fasoc = new File("src\\bd\\asociaciones.txt");
         
-        fic.vaciar(fvol);
         fic.vaciar(facom);
         fic.vaciar(fusr);
         
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
-        System.out.println(asociaciones.toString());
         
-        asociaciones.get(0).addVol(435234234 , "elepepes" , "12314" , "pepe" , "garcias", "martinez", asociaciones.get(0) , fisica , disponible , fvol);
-        asociaciones.get(0).addVol(333999884 , "marialoca" , "234432" , "maria" , "martinez", "lopez", asociaciones.get(0) , sensorial , ocupado , fvol);
+        for (int i = 0; i < asociaciones.get(0).voluntarios.size(); i++) {
+            System.out.println( asociaciones.get(0).voluntarios.get(i) );
+        }
+        
+
         asociaciones.get(0).voluntarios.get(0).addAcom(112, terminado , facom);
         asociaciones.get(0).voluntarios.get(1).addAcom(113, en_curso , facom);
         
         asociaciones.get(0).addUsr(99999999, "LeandroGado", "afasd223", "leandro", "Gado", "Mucho", 78 , asociaciones.get(0), fisica, "callese", 12312321, 3333123 , fusr);
+        
+        
+//        VenOpcUsr v = new VenOpcUsr();
+//        v.setVisible(true);
+//        
+//        VenAdminSelecc vas = new VenAdminSelecc();
+//        vas.setVisible(true);
+        
+//        VentanaGeneral vg = new VentanaGeneral();
+//        vg.setVisible(true);
         
         p.start();
         

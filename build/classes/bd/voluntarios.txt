@@ -1,2 +1,3 @@
-435234234,elepepes,12314,pepe,garcias,martinez,"ONCE",fisica,disponible*
-333999884,marialoca,234432,maria,martinez,lopez,"ONCE",sensorial,ocupado*
+435234234,"pepito","12314","pepe","garcias","martinez","D235432T",fisica,disponible*
+333999884,"marialoca","234432","maria","martinez","lopez","D235432T",sensorial,ocupado*
+998654,"Millan213","noteladigo","Millan","Martínez","Arconada","D235432T",fisica,ocupado*
