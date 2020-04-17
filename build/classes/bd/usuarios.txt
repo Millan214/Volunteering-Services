@@ -1,1 +1,1 @@
-99999999,34LeandroGado",34afasd223",34leandro",34Gado",34Mucho",78,Asociacion{nom="ONCE", cif="D235432T"},fisica,34callese,12312321,3333123*
+44444,"Millan214","noteladigo","Millan","Martinez","Arconada",18,"D235432T",intelectual,"micasas",3123,55555*

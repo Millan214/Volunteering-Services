@@ -8,7 +8,7 @@ public class Usuario extends Cuenta{
     private int telMov;
     private int telFij;
 
-    public enum Discapacidad{ fisica , sensorial , intelecutal , multiple , otras };
+    public enum Discapacidad{ fisica , sensorial , intelectual , multiple , otras };
     
     public Usuario(
                    int idCuenta,
@@ -34,33 +34,18 @@ public class Usuario extends Cuenta{
     
     @Override
     public String toString() {
-        return "Voluntario{" + "idCuenta=" + super.getIdCuenta() +
+        return "Usuario{" + "idCuenta=" + super.getIdCuenta() +
                              ", nomCuenta=" + super.getNomCuenta() +
                              ", contrase\u00f1a=" + super.getContraseña() +
                              ", nombre=" + super.getNombre() +
                              ", ape1=" + super.getApe1() +
                              ", ape2=" + super.getApe2() + 
+                             ", edad=" + this.getEdad() +
                              ", asociacion=" + this.getAsociacion() +
                              ", tipoDiscap=" + this.getTipoDiscap() +
                              ", direccion=" + this.getDireccion() +
                              ", telMov=" + this.getTelMov() +
                              ", telFij=" + this.getTelFij() + '}';
-    }
-    
-    public String toStringFichero(String separador , String fin){
-        char com = (char)34;// " -> comillas dobles
-        return super.getIdCuenta() + separador +
-               + com + super.getNomCuenta() + com + separador +
-               + com + super.getContraseña() + com + separador +
-               + com + super.getNombre() + com + separador +
-               + com + super.getApe1() + com + separador +
-               + com + super.getApe2() + com + separador +
-               this.getEdad() + separador +
-               this.getAsociacion() + separador +
-               this.getTipoDiscap() + separador +
-               + com + this.getDireccion() + separador +
-               this.getTelMov() + separador +
-               this.getTelFij() + fin;
     }
 
     public int getEdad() {

@@ -2,7 +2,7 @@ package data;
 
 import data.Usuario.Discapacidad;
 import static data.Usuario.Discapacidad.fisica;
-import static data.Usuario.Discapacidad.intelecutal;
+import static data.Usuario.Discapacidad.intelectual;
 import static data.Usuario.Discapacidad.multiple;
 import static data.Usuario.Discapacidad.otras;
 import static data.Usuario.Discapacidad.sensorial;
@@ -29,6 +29,7 @@ public class Asociacion {
         this.nom = nom;
         this.cif = cif;
         deFicheroAListaVol(fvol);
+        deFicheroAListaUsr(fusr);
     }
     
     public void deFicheroAListaVol(File f) throws IOException{
@@ -43,6 +44,22 @@ public class Asociacion {
             if( str[6].equals(this.cif) ){
                 voluntarios.add( new Voluntario( idCue , str[1] , str[2] , str[3] , str[4] , str[5] , this , disc , est ) );
             }
+        }
+    }
+    
+    public void deFicheroAListaUsr(File f) throws IOException {
+        FicUtls fic = new FicUtls();
+        String todo = fic.leer(f);
+        String[] linea = todo.split("\n");
+        for (int i = 0; i < linea.length; i++){
+            String[] str = linea[i].substring( 0 , linea[i].indexOf("*") ).split(",");
+            int idCue = Integer.parseInt(str[0]);
+            int edad = Integer.parseInt(str[6]);
+            Discapacidad disc = toDiscapacidad(str[8]);
+            int telMov = Integer.parseInt(str[10]);
+            int telFij = Integer.parseInt(str[11]);
+            usuarios.add( new Usuario( idCue , str[1] , str[2] , str[3] , str[4] , str[5] ,
+                                       edad , this , disc , str[10] , telMov , telFij ) );
         }
     }
     
@@ -70,9 +87,18 @@ public class Asociacion {
                        Estado estado,
                        File f) throws IOException
     {
-        voluntarios.add( new Voluntario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2 , asociacion , prefAcomp , estado ) );
         FicUtls fic = new FicUtls();
-        fic.añadir(voluntarios.get( voluntarios.size()-1 ).toStringFichero(",","*"), f);
+        char com = (char)34;// " -> comillas dobles
+        String todo = idCuenta + "," +
+                      com + nomCuenta + com + "," +
+                      com + contraseña + com + "," +
+                      com + nombre + com + "," +
+                      com + ape1 + com + "," +
+                      com + ape2 + com + "," +
+                      asociacion.getCif() + "," +
+                      prefAcomp + "," +
+                      estado + "*";
+        fic.añadir( todo , f);
     }
     
     
@@ -107,10 +133,21 @@ public class Asociacion {
                    int telFij,
                    File f) throws IOException
     {
-        usuarios.add( new Usuario ( idCuenta , nomCuenta , contraseña ,
-                nombre , ape1 , ape2, edad , asociacion , tipoDiscap , direccion , telMov , telFij ) );
         FicUtls fic = new FicUtls();
-        fic.añadir( usuarios.get( usuarios.size()-1 ).toStringFichero(",", "*") , f);
+        char com = (char)34;// " -> comillas dobles
+        String todo = idCuenta + "," +
+                      com + nomCuenta + com + "," +
+                      com + contraseña + com + "," +
+                      com + nombre + com + "," +
+                      com + ape1 + com + "," +
+                      com + ape2 + com + "," +
+                      edad + "," +
+                      asociacion.getCif() + "," +
+                      tipoDiscap + "," +
+                      com + direccion + com + "," +
+                      telMov + "," +
+                      telFij + "*";
+        fic.añadir( todo , f);
     }
     
     public void showVolunt (){
@@ -153,18 +190,19 @@ public class Asociacion {
     }
 
     private Discapacidad toDiscapacidad(String string) {
+        string = string.toLowerCase();
         switch(string){
             case "fisica":
                 return fisica;
             case "sensorial":
                 return sensorial;
             case "intelectual":
-                return intelecutal;
+                return intelectual;
             case "multiple":
                 return multiple;
             case "otras":
                 return otras;
-            default: System.out.println("Discapacidad no válida");
+            default: System.out.println("Discapacidad no válida (" + string + ")");
         }
         return null;
     }
@@ -179,6 +217,5 @@ public class Asociacion {
             default: System.out.println("Estado no válido");;
         }
         return null;
-    }
-        
+    } 
 }

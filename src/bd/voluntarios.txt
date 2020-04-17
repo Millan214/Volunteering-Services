@@ -1,3 +1,4 @@
 435234234,"pepito","12314","pepe","garcias","martinez","D235432T",fisica,disponible*
 333999884,"marialoca","234432","maria","martinez","lopez","D235432T",sensorial,ocupado*
 998654,"Millan213","noteladigo","Millan","Martínez","Arconada","D235432T",fisica,ocupado*
+1230003,"elCopas","e24234dfsa","Mariano","Prada","Argelio","D235432T",otras,disponible*

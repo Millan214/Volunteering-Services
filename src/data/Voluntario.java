@@ -59,19 +59,6 @@ public class Voluntario extends Cuenta{
                              ", estado="+this.getEstado()+'}';
     }
     
-    public String toStringFichero(String separador , String fin) {
-        char com = (char)34;
-        return super.getIdCuenta() + separador
-             + com + super.getNomCuenta() + com + separador
-             + com + super.getContraseña() + com + separador
-             + com + super.getNombre() + com + separador
-             + com + super.getApe1() + com + separador
-             + com + super.getApe2() + com + separador
-             + this.getCifAsociacion() + separador
-             + this.getPrefAcomp() + separador
-             + this.getEstado() + fin ;             
-    }
-    
     public String getCifAsociacion(){
         return asociacion.getCif();
     }
