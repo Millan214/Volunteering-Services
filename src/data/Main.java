@@ -48,7 +48,7 @@ public class Main {
 //        
 //        VenAdminSelecc vas = new VenAdminSelecc();
 //        vas.setVisible(true);
-        
+//        
 //        VentanaGeneral vg = new VentanaGeneral();
 //        vg.setVisible(true);
         
