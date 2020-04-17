@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         
         ProcessBuilder p = new ProcessBuilder();
-        p.command("cmd.exe","/c","src\\bd\\usuarios.txt");
+        p.command("cmd.exe","/c","src\\bd\\acompañamientos.txt");
         
         FicUtls fic = new FicUtls();
         
@@ -32,26 +32,9 @@ public class Main {
         File fvol = new File("src\\bd\\voluntarios.txt");
         File fusr = new File("src\\bd\\usuarios.txt");
         
-        fic.vaciar(facom);
-        
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
-        
-        asociaciones.get(0).voluntarios.get(0).addAcom(112, terminado , facom);
-        asociaciones.get(0).voluntarios.get(1).addAcom(113, en_curso , facom);
-        
-        asociaciones.get(0).showUsuarios();
-        asociaciones.get(0).showVolunt();
-        
-//        VenOpcUsr v = new VenOpcUsr();
-//        v.setVisible(true);
-//        
-//        VenAdminSelecc vas = new VenAdminSelecc();
-//        vas.setVisible(true);
-//        
-//        VentanaGeneral vg = new VentanaGeneral();
-//        vg.setVisible(true);
-        
+                
         p.start();
         
     }

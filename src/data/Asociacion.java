@@ -71,7 +71,7 @@ public class Asociacion {
                        String ape2,
                        Asociacion asociacion,
                        Discapacidad prefAcomp,
-                       Estado estado )
+                       Estado estado ) throws IOException
     {
         voluntarios.add( new Voluntario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2 , asociacion , prefAcomp , estado ) );
     }
@@ -87,6 +87,7 @@ public class Asociacion {
                        Estado estado,
                        File f) throws IOException
     {
+        voluntarios.add( new Voluntario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2 , asociacion , prefAcomp , estado ) );
         FicUtls fic = new FicUtls();
         char com = (char)34;// " -> comillas dobles
         String todo = idCuenta + "," +
@@ -133,6 +134,7 @@ public class Asociacion {
                    int telFij,
                    File f) throws IOException
     {
+        usuarios.add( new Usuario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2, edad , asociacion , tipoDiscap , direccion , telMov , telFij ) );
         FicUtls fic = new FicUtls();
         char com = (char)34;// " -> comillas dobles
         String todo = idCuenta + "," +
