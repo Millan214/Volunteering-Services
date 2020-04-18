@@ -9,7 +9,7 @@ import static data.Usuario.Discapacidad.otras;
 import static data.Usuario.Discapacidad.sensorial;
 import static data.Voluntario.Estado.disponible;
 import static data.Voluntario.Estado.ocupado;
-import gui.VenAdminSelecc;
+import gui.VenLoginAdmin;
 import gui.VenOpcUsr;
 import gui.VentanaGeneral;
 import java.io.File;
@@ -35,7 +35,11 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
                 
-        p.start();
+//        p.start();
+
+
+        VenLoginAdmin vou = new VenLoginAdmin();
+        vou.setVisible(true);
         
     }
 

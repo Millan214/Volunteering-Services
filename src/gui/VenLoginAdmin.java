@@ -2,8 +2,8 @@ package gui;
 
 import javax.swing.JFrame;
 
-public class VenAdminSelecc extends JFrame{
-    public VenAdminSelecc() {
+public class VenLoginAdmin extends JFrame{
+    public VenLoginAdmin() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
