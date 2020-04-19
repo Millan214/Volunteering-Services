@@ -17,6 +17,7 @@ import gui.VenPpalAdmin;
 import gui.VenLoginAdmin;
 import gui.VenLoginUsr;
 import gui.VenOpcUsr;
+import gui.VenPpalUsr;
 import gui.VentanaGeneral;
 import java.io.File;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
                 
-        VenLoginUsr v = new VenLoginUsr();
+        VenPpalUsr v = new VenPpalUsr();
         v.setVisible(true);
         
 //        p.start();
