@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/gui/VentanaGeneral.java</file>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/gui/VenAdmin.java</file>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/gui/VenAñdUser.java</file>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/data/Main.java</file>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/gui/VenLoginAdmin.java</file>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/data/Usuario.java</file>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/gui/VenAñdVol.java</file>
-            <file>file:/C:/Users/abelr/Desktop/SERVO-master(1)/SERVO-master/src/gui/VenDelUser.java</file>
+            <file>file:/C:/Users/Millán/Desktop/SERVO/src/data/Cuenta.java</file>
+            <file>file:/C:/Users/Millán/Desktop/SERVO/src/data/Voluntario.java</file>
+            <file>file:/C:/Users/Millán/Desktop/SERVO/src/data/Main.java</file>
+            <file>file:/C:/Users/Millán/Desktop/SERVO/src/data/Asociacion.java</file>
+            <file>file:/C:/Users/Millán/Desktop/SERVO/src/data/Usuario.java</file>
         </group>
     </open-files>
 </project-private>

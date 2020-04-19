@@ -9,6 +9,11 @@ import static data.Usuario.Discapacidad.otras;
 import static data.Usuario.Discapacidad.sensorial;
 import static data.Voluntario.Estado.disponible;
 import static data.Voluntario.Estado.ocupado;
+import gui.VenAdminAddUsr;
+import gui.VenAdminAddVol;
+import gui.VenDelUser;
+import gui.VenDelVol;
+import gui.VenPpalAdmin;
 import gui.VenLoginAdmin;
 import gui.VenOpcUsr;
 import gui.VentanaGeneral;
@@ -37,9 +42,8 @@ public class Main {
                 
 //        p.start();
 
-
-        VenLoginAdmin vou = new VenLoginAdmin();
-        vou.setVisible(true);
+        VenDelVol v = new VenDelVol();
+        v.setVisible(true);
         
     }
 
