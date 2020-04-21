@@ -9,8 +9,18 @@ import static data.Usuario.Discapacidad.otras;
 import static data.Usuario.Discapacidad.sensorial;
 import static data.Voluntario.Estado.disponible;
 import static data.Voluntario.Estado.ocupado;
+import gui.VenAdminAddUsr;
+import gui.VenAdminAddVol;
+import gui.VenDelUser;
+import gui.VenDelVol;
+import gui.VenPpalAdmin;
 import gui.VenLoginAdmin;
+import gui.VenLoginUsr;
+import gui.VenLoginVol;
+import gui.VenModificarVol;
 import gui.VenOpcUsr;
+import gui.VenPpalUsr;
+import gui.VenPpalVol;
 import gui.VentanaGeneral;
 import java.io.File;
 import java.io.IOException;
@@ -35,11 +45,18 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
                 
+        VenLoginVol v = new VenLoginVol();
+        v.setVisible(true);
+        
+        VenPpalVol vf = new VenPpalVol();
+        vf.setVisible(true);
+        
+        VenPpalUsr vm = new VenPpalUsr();
+        vm.setVisible(true);
+        
 //        p.start();
 
-
-        VenLoginAdmin vou = new VenLoginAdmin();
-        vou.setVisible(true);
+        
         
     }
 
