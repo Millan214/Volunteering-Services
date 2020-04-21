@@ -16,8 +16,11 @@ import gui.VenDelVol;
 import gui.VenPpalAdmin;
 import gui.VenLoginAdmin;
 import gui.VenLoginUsr;
+import gui.VenLoginVol;
+import gui.VenModificarVol;
 import gui.VenOpcUsr;
 import gui.VenPpalUsr;
+import gui.VenPpalVol;
 import gui.VentanaGeneral;
 import java.io.File;
 import java.io.IOException;
@@ -42,8 +45,14 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
                 
-        VenPpalUsr v = new VenPpalUsr();
+        VenLoginVol v = new VenLoginVol();
         v.setVisible(true);
+        
+        VenPpalVol vf = new VenPpalVol();
+        vf.setVisible(true);
+        
+        VenPpalUsr vm = new VenPpalUsr();
+        vm.setVisible(true);
         
 //        p.start();
 
