@@ -10,14 +10,14 @@ public class VenOpcUsr extends javax.swing.JFrame{
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana de selección de usuario");
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        botonUsuario = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        botonUsr = new javax.swing.JButton();
         botonVoluntario = new javax.swing.JButton();
         botonAdmin = new javax.swing.JButton();
 
@@ -27,17 +27,29 @@ public class VenOpcUsr extends javax.swing.JFrame{
         jPanel2.setForeground(new java.awt.Color(242, 226, 239));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 36)); // NOI18N
-        jLabel1.setText("¿QUIEN ERES?");
+        jLabel5.setFont(new java.awt.Font("Dubai Light", 1, 36)); // NOI18N
+        jLabel5.setText("¿QUIEN ERES?");
 
-        botonUsuario.setBackground(new java.awt.Color(227, 226, 244));
-        botonUsuario.setText("USUARIO");
+        botonUsr.setBackground(new java.awt.Color(227, 226, 244));
+        botonUsr.setForeground(new java.awt.Color(0, 0, 0));
+        botonUsr.setText("USUARIO");
+        botonUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonUsrActionPerformed(evt);
+            }
+        });
 
         botonVoluntario.setBackground(new java.awt.Color(227, 226, 244));
+        botonVoluntario.setForeground(new java.awt.Color(0, 0, 0));
         botonVoluntario.setText("VOLUNTARIO");
+        botonVoluntario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVoluntarioActionPerformed(evt);
+            }
+        });
 
         botonAdmin.setBackground(new java.awt.Color(227, 226, 244));
-        botonAdmin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        botonAdmin.setForeground(new java.awt.Color(0, 0, 0));
         botonAdmin.setText("ADMINISTRADOR");
         botonAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,30 +62,30 @@ public class VenOpcUsr extends javax.swing.JFrame{
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(botonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(botonUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel5)))
+                .addGap(0, 74, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(130, 130, 130))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(botonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addComponent(botonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 597, Short.MAX_VALUE)
+                    .addComponent(botonUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonVoluntario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 608, Short.MAX_VALUE)
                 .addComponent(botonAdmin)
                 .addContainerGap())
         );
@@ -95,12 +107,20 @@ public class VenOpcUsr extends javax.swing.JFrame{
     private void botonAdminActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
     }                                          
+
+    private void botonVoluntarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }                                               
+
+    private void botonUsrActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
  
     // Variables declaration - do not modify                     
     private javax.swing.JButton botonAdmin;
-    private javax.swing.JButton botonUsuario;
+    private javax.swing.JButton botonUsr;
     private javax.swing.JButton botonVoluntario;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
-    // End of variables declaration         
+    // End of variables declaration            
 }

@@ -18,6 +18,7 @@ import gui.VenLoginAdmin;
 import gui.VenLoginUsr;
 import gui.VenLoginVol;
 import gui.VenModificarVol;
+import gui.VenNotificacionesVol;
 import gui.VenOpcUsr;
 import gui.VenPpalUsr;
 import gui.VenPpalVol;
@@ -45,14 +46,11 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
                 
-        VenLoginVol v = new VenLoginVol();
-        v.setVisible(true);
+//        VenOpcUsr vou = new VenOpcUsr();
+//        vou.setVisible(true);
         
-        VenPpalVol vf = new VenPpalVol();
-        vf.setVisible(true);
-        
-        VenPpalUsr vm = new VenPpalUsr();
-        vm.setVisible(true);
+        VenNotificacionesVol vla = new VenNotificacionesVol();
+        vla.setVisible(true);
         
 //        p.start();
 
