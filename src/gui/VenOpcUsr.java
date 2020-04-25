@@ -4,9 +4,13 @@ import javax.swing.JFrame;
 
 public class VenOpcUsr extends javax.swing.JFrame{
     
+    VenLoginAdmin vla;
+    VenLoginUsr vlu;
+    VenLoginVol vlv;
+    
     public VenOpcUsr() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana de selección de usuario");
     }
@@ -104,16 +108,22 @@ public class VenOpcUsr extends javax.swing.JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonAdminActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+    private void botonAdminActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        vla = new VenLoginAdmin();
+        vla.setVisible(true);
     }                                          
 
-    private void botonVoluntarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+    private void botonVoluntarioActionPerformed(java.awt.event.ActionEvent evt) {      
+        this.setVisible(false);
+        vlv = new VenLoginVol();
+        vlv.setVisible(true);
     }                                               
 
-    private void botonUsrActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    private void botonUsrActionPerformed(java.awt.event.ActionEvent evt) {          
+        this.setVisible(false);
+        vlu = new VenLoginUsr();
+        vlu.setVisible(true);
     }                                        
  
     // Variables declaration - do not modify                     

@@ -23,6 +23,7 @@ import gui.VenOpcUsr;
 import gui.VenPpalUsr;
 import gui.VenPpalVol;
 import gui.VentanaGeneral;
+import gui.Ventanas;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,10 +33,7 @@ import utilsFicheros.FicUtls;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        
-        ProcessBuilder p = new ProcessBuilder();
-        p.command("cmd.exe","/c","src\\bd\\acompañamientos.txt");
-        
+
         FicUtls fic = new FicUtls();
         
         File facom = new File("src\\bd\\acompañamientos.txt");
@@ -46,16 +44,9 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
                 
-//        VenOpcUsr vou = new VenOpcUsr();
-//        vou.setVisible(true);
-        
-        VenNotificacionesVol vla = new VenNotificacionesVol();
-        vla.setVisible(true);
-        
-//        p.start();
-
-        
-        
+        VenOpcUsr v = new VenOpcUsr();
+        v.setVisible(true);
+    
     }
 
     private static void deFicheroAListaAsoc(File fasoc, ArrayList<Asociacion> asociaciones) throws IOException {

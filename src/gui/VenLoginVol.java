@@ -4,9 +4,12 @@ import javax.swing.JFrame;
 
 public class VenLoginVol extends JFrame{
 
+    VenOpcUsr vou;
+    VenPpalVol vpv;
+    
     public VenLoginVol() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana login voluntario");
     }
@@ -126,12 +129,16 @@ public class VenLoginVol extends JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) { 
+        this.setVisible(false);
+        vpv = new VenPpalVol();
+        vpv.setVisible(true);
     }                                            
 
-    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {              
+        this.setVisible(false);
+        vou = new VenOpcUsr();
+        vou.setVisible(true);
     }                                          
  
     // Variables declaration - do not modify                     

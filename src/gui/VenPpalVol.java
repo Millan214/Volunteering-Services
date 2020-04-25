@@ -3,9 +3,14 @@ package gui;
 import javax.swing.JFrame;
 
 public class VenPpalVol extends JFrame{
+    
+    VenOpcUsr vou;
+    VenModificarVol vmv;
+    VenNotificacionesVol vnv;
+    
     public VenPpalVol() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana principal voluntario");
     }
@@ -102,16 +107,22 @@ public class VenPpalVol extends JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {    
+        this.setVisible(false);
+        vou = new VenOpcUsr();
+        vou.setVisible(true);
     }                                          
 
-    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {           
+        this.setVisible(false);
+        vmv = new VenModificarVol();
+        vmv.setVisible(true);
     }                                              
 
-    private void botonNotificacionesActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-        // TODO add your handling code here:
+    private void botonNotificacionesActionPerformed(java.awt.event.ActionEvent evt) {       
+        this.setVisible(false);
+        vnv = new VenNotificacionesVol();
+        vnv.setVisible(true);
     }                                                   
  
     // Variables declaration - do not modify                     

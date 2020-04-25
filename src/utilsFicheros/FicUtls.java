@@ -1,19 +1,19 @@
 package utilsFicheros;
 
-import data.Voluntario;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class FicUtls {
 
     public FicUtls() {
+    }
+    
+    public void ejecutar(String ruta) throws IOException{
+        new ProcessBuilder().command("cmd.exe","/c",ruta).start();
     }
     
     public void añadir(String texto, File f) throws IOException {

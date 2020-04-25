@@ -3,6 +3,9 @@ package gui;
 import javax.swing.JFrame;
 
 public class VenNotificacionesVol extends JFrame{
+    
+    VenPpalVol vpv;
+    
     public VenNotificacionesVol() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -102,8 +105,10 @@ public class VenNotificacionesVol extends JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) { 
+        this.setVisible(false);
+        vpv = new VenPpalVol();
+        vpv.setVisible(true);
     }                                          
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {                                             
