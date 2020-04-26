@@ -22,7 +22,7 @@ public class VenLoginAdmin extends JFrame{
         jLabel7 = new javax.swing.JLabel();
         campoNombre = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        campoPasswd = new javax.swing.JTextField();
+        campoPasswd = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

@@ -39,7 +39,7 @@ public class Voluntario extends Cuenta{
         FicUtls fic = new FicUtls();
         String todo = fic.leer(f);
         String[] linea = todo.split("\n");
-//        for (int i = 0; i < linea.length; i++) {
+        for (int i = 0; i < linea.length; i++) {
            String[] str = linea[0].split(">");//<<<
            if ( str[0].equals( this.getIdCuenta()+"" ) ) { //el this.getIdCuenta()+"" pasa de int a String para que se puedan comparar
                str[1] = str[1].substring( 0 , str[1].indexOf("*") );
@@ -48,7 +48,7 @@ public class Voluntario extends Cuenta{
                EstadoAcom esta = toEstadoAcom(partes[1]);
                acompañamientos.add( new Acompañamiento( id , esta ) );
            }
-//        }
+        }
     }
     
     private EstadoAcom toEstadoAcom(String parte) {

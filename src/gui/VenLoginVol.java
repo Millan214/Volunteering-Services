@@ -23,7 +23,7 @@ public class VenLoginVol extends JFrame{
         botonAceptar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        campoPasswd = new javax.swing.JTextField();
+        campoPasswd = new javax.swing.JPasswordField();
         campoNomCuenta = new javax.swing.JTextField();
         botonSalir = new javax.swing.JButton();
 

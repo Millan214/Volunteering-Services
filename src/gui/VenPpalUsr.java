@@ -3,9 +3,12 @@ package gui;
 import javax.swing.JFrame;
 
 public class VenPpalUsr extends JFrame{
+    
+    VenLoginUsr vlu;
+    
     public VenPpalUsr() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana solicitar acompañamiento");
     }
@@ -58,6 +61,11 @@ public class VenPpalUsr extends JFrame{
         botonSalir.setBackground(new java.awt.Color(240, 230, 216));
         botonSalir.setForeground(new java.awt.Color(0, 0, 0));
         botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -233,6 +241,12 @@ public class VenPpalUsr extends JFrame{
         pack();
     }// </editor-fold>                        
 
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt){
+        this.setVisible(false);
+        vlu = new VenLoginUsr();
+        vlu.setVisible(true);
+    }
+    
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
     }                                            

@@ -25,7 +25,7 @@ public class VenModificarVol extends JFrame{
         jLabel2 = new javax.swing.JLabel();
         campoNomCuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        campoPasswd = new javax.swing.JTextField();
+        campoPasswd = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         campoNombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();

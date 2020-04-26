@@ -3,9 +3,13 @@ package gui;
 import javax.swing.JFrame;
 
 public class VenLoginUsr extends JFrame{
-        public VenLoginUsr() {
+    
+    VenPpalUsr vpu;
+    VenOpcUsr vou;
+    
+    public VenLoginUsr() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana login usuario");
     }
@@ -19,7 +23,7 @@ public class VenLoginUsr extends JFrame{
         botonAceptar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        campoPasswd = new javax.swing.JTextField();
+        campoPasswd = new javax.swing.JPasswordField();
         campoNomCuenta = new javax.swing.JTextField();
         botonSalir = new javax.swing.JButton();
         campoAsoc = new javax.swing.JTextField();
@@ -142,11 +146,15 @@ public class VenLoginUsr extends JFrame{
     }// </editor-fold>                        
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+        this.setVisible(false);
+        vpu = new VenPpalUsr();
+        vpu.setVisible(true);
     }                                            
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+        this.setVisible(false);
+        vou = new VenOpcUsr();
+        vou.setVisible(true);
     }                                          
  
     // Variables declaration - do not modify                     
