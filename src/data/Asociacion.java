@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 import utilsFicheros.FicUtls;
 
 public class Asociacion {
@@ -150,6 +151,27 @@ public class Asociacion {
                       telMov + "," +
                       telFij + "*";
         fic.añadir( todo , f);
+    }
+        
+    public Voluntario buscarNomCuenVolunt(String str){
+        char com = (char)34;// " -> comillas dobles
+        str = com+str+com;
+        for (int i = 0; i < voluntarios.size(); i++) {
+            if (voluntarios.get(i).getNomCuenta().equals(str)) {
+                return voluntarios.get(i);
+            }
+        }
+        JOptionPane.showMessageDialog(null,"Nombre no encontrado: " + str);
+        return null;
+    }
+    
+    public boolean checkPassVol(Voluntario v , String pass){
+        char com = (char)34;// " -> comillas dobles
+        pass = com+pass+com;
+        if (v.getContraseña().equals(pass)) {
+            return true;
+        }
+        return false;
     }
     
     public void showVolunt (){

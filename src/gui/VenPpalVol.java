@@ -10,7 +10,7 @@ public class VenPpalVol extends JFrame{
     
     public VenPpalVol() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana principal voluntario");
     }

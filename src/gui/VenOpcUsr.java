@@ -10,7 +10,7 @@ public class VenOpcUsr extends javax.swing.JFrame{
     
     public VenOpcUsr() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana de selección de usuario");
     }

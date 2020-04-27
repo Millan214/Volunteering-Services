@@ -43,7 +43,7 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList <>();
         deFicheroAListaAsoc(fasoc,asociaciones);
         
-        VenAdminAddUsr vol = new VenAdminAddUsr();
+        VenLoginVol vol = new VenLoginVol(asociaciones);
         vol.setVisible(true);
     
     }
