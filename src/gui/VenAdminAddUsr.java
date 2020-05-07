@@ -5,11 +5,12 @@
  */
 package gui;
 
+import data.Asociacion;
 import javax.swing.JFrame;
 
 
 public class VenAdminAddUsr extends JFrame{
-    public VenAdminAddUsr() {
+    public VenAdminAddUsr(Asociacion as) {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);

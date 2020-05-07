@@ -20,8 +20,8 @@ public class Asociacion {
 
     private String nom;
     private String cif;
-    private File fvol = new File("src\\bd\\voluntarios.txt");
-    private File fusr = new File("src\\bd\\usuarios.txt");
+    private File fvol = new File("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
+    private File fusr = new File("src"+File.separator+"ficheros"+File.separator+"usuarios.txt");
     
     ArrayList<Voluntario> voluntarios = new ArrayList <>();
     ArrayList<Usuario> usuarios = new ArrayList <>();
@@ -42,9 +42,7 @@ public class Asociacion {
             int idCue = Integer.parseInt(str[0]);
             Discapacidad disc = toDiscapacidad(str[7]);
             Estado est = toEstado(str[8]);
-            if( str[6].equals(this.cif) ){
-                voluntarios.add( new Voluntario( idCue , str[1] , str[2] , str[3] , str[4] , str[5] , this , disc , est ) );
-            }
+            voluntarios.add( new Voluntario( idCue , str[1] , str[2] , str[3] , str[4] , str[5] , this , disc , est ) );
         }
     }
     
@@ -168,6 +166,10 @@ public class Asociacion {
     public boolean checkPassVol(Voluntario v , String pass){
         char com = (char)34;// " -> comillas dobles
         pass = com+pass+com;
+        if ( v == null || pass == null) {
+            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
+            return false;
+        }
         if (v.getContraseña().equals(pass)) {
             return true;
         }

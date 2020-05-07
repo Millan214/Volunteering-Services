@@ -5,6 +5,9 @@
  */
 package gui;
 
+import data.Asociacion;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import javax.swing.JFrame;
 
 /**
@@ -13,13 +16,30 @@ import javax.swing.JFrame;
  */
 public class VenPpalAdmin extends JFrame{
     
-    public VenPpalAdmin() {
+    private Asociacion as;
+    private VenAdminAddUsr vaau;
+    private VenOpcUsr vou;
+    
+    public VenPpalAdmin(Asociacion as) {
+        this.as = as;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana principal del Administrador");
     }
-
+    
+    private void botonAñdUserActionPerformed(ActionEvent evt) {
+        this.setVisible(false);
+        vaau = new VenAdminAddUsr(this.as);
+        vaau.setVisible(true);
+    }
+    
+    private void botonSalirActionPerformed(ActionEvent evt) {
+        this.setVisible(false);
+        vou = new VenOpcUsr();
+        vou.setVisible(true);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -49,6 +69,11 @@ public class VenPpalAdmin extends JFrame{
         botonAñdUser.setBackground(new java.awt.Color(216, 225, 240));
         botonAñdUser.setForeground(new java.awt.Color(0, 0, 0));
         botonAñdUser.setText("Usuario");
+        botonAñdUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAñdUserActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel4.setText("Añadir");
@@ -71,6 +96,11 @@ public class VenPpalAdmin extends JFrame{
         botonSalir.setBackground(new java.awt.Color(240, 230, 216));
         botonSalir.setForeground(new java.awt.Color(0, 0, 0));
         botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

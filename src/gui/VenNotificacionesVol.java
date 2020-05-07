@@ -1,12 +1,15 @@
 package gui;
 
+import data.Voluntario;
 import javax.swing.JFrame;
 
 public class VenNotificacionesVol extends JFrame{
     
     VenPpalVol vpv;
+    Voluntario vol;
     
-    public VenNotificacionesVol() {
+    public VenNotificacionesVol(Voluntario vol) {
+        this.vol = vol;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -107,7 +110,7 @@ public class VenNotificacionesVol extends JFrame{
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) { 
         this.setVisible(false);
-        vpv = new VenPpalVol();
+        vpv = new VenPpalVol(vol);
         vpv.setVisible(true);
     }                                          
 

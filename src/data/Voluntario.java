@@ -17,7 +17,7 @@ public class Voluntario extends Cuenta{
     public enum Estado{ disponible , ocupado };
     
     ArrayList<Acompañamiento> acompañamientos = new ArrayList <>();
-    File facom = new File("src\\bd\\acompañamientos.txt");
+    File facom = new File("src"+File.separator+"ficheros"+File.separator+"acompañamientos.txt");
     
     public Voluntario( int idCuenta,
                        String nomCuenta,

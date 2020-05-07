@@ -2,21 +2,18 @@ package gui;
 
 import data.Asociacion;
 import data.Voluntario;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import utilsFicheros.FicUtls;
 
 public class VenLoginVol extends JFrame{
 
-    VenOpcUsr vou;
-    VenPpalVol vpv;
-    FicUtls fic;
-    File fvol = new File("src\\bd\\voluntarios.txt");
-    ArrayList<Asociacion> aslist;
+    private VenOpcUsr vou;
+    private VenPpalVol vpv;
+    private FicUtls fic;
+    private ArrayList<Asociacion> asociaciones;
+    private Voluntario vol;
     
     public VenLoginVol() {
         initComponents();
@@ -30,7 +27,7 @@ public class VenLoginVol extends JFrame{
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana login voluntario");
-        this.aslist = asociaciones;
+        this.asociaciones = asociaciones;
     }
 
     @SuppressWarnings("unchecked")
@@ -155,7 +152,7 @@ public class VenLoginVol extends JFrame{
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         if (checkLogin()) {
             this.setVisible(false);
-            vpv = new VenPpalVol();
+            vpv = new VenPpalVol(vol);
             vpv.setVisible(true);
         }
     }                                            
@@ -167,15 +164,11 @@ public class VenLoginVol extends JFrame{
     }   
     
     private boolean checkLogin() throws IOException {
-        String nom = campoNomCuenta.getText();
-        String pass = campoPasswd.getText();
-        Voluntario vol = null;
-        for (int i = 0; i < aslist.size(); i++) {
-            vol = this.aslist.get(i).buscarNomCuenVolunt(nom);
-            return this.aslist.get(i).checkPassVol(vol, pass);
-        }
-        return false;
-        
+        String nom = this.campoNomCuenta.getText();
+        String pass = this.campoPasswd.getText();
+        System.out.println(asociaciones.get(0));
+        vol = this.asociaciones.get(0).buscarNomCuenVolunt(nom);
+        return this.asociaciones.get(0).checkPassVol(vol, pass);
     }
  
     // Variables declaration - do not modify                     
