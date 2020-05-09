@@ -23,7 +23,9 @@ public class Main {
         //pepito 12314
         VenLoginVol vol = new VenLoginVol(asociaciones);
         vol.setVisible(true);
-
+        
+        
+        
 //        VenModificarVol vmv = new VenModificarVol(asociaciones.get(0).voluntarios.get(0) , fvol);
         //vmv.setVisible(true);
 //        fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
