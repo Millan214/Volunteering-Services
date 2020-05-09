@@ -1,5 +1,4 @@
 # SERVO
  Proyecto de Programacion
 
-jaja mori pendejo
-
+Servicio de voluntariado
