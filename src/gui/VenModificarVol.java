@@ -316,7 +316,6 @@ public class VenModificarVol extends JFrame{
             fic.eliminar(lineaOld, f);
             linea = idCuen + linea.substring( linea.indexOf(",") , linea.length() );
             fic.añadir(linea, f); 
-            System.out.println("Linea en voluntarios.txt --> "+linea);
 
             //Modificar también el id del acompañamiento
             String idVol = vol.getIdCuenta()+"";
@@ -325,7 +324,6 @@ public class VenModificarVol extends JFrame{
             String[] idAcom = new String[linac.length];
             for (int i = 0; i < linac.length; i++) {
                 idAcom[i] = linac[i].substring( 0 , linac[i].indexOf(">") );
-                System.out.println("idAcom: "+idAcom[i]);
                 if (idAcom[i].equals(idVol)) {
                     String lin = idCuen + linac[i].substring( linac[i].indexOf(">") );
                     fic.eliminar(linac[i], facom);

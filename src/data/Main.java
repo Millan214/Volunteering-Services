@@ -9,6 +9,7 @@ import utilsFicheros.FicUtls;
 
 public class Main {
     /**
+     * @version 1.0
      * @author Millan & Abel
      * @param args
      * @throws java.io.IOException
