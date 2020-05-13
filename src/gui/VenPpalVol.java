@@ -1,8 +1,10 @@
 package gui;
 
+import data.Asociacion;
 import data.Voluntario;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -13,14 +15,17 @@ public class VenPpalVol extends JFrame{
     private VenModificarVol vmv;
     private VenNotificacionesVol vnv;
     private Voluntario vol;
+    private ArrayList<Asociacion> asociaciones;
     private File f = new File("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");;
     
-    public VenPpalVol(Voluntario vol) {
+    public VenPpalVol(Voluntario vol,ArrayList<Asociacion> as) {
+        this.asociaciones = as;
         this.vol = vol;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana principal voluntario");
+        this.setResizable(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -121,7 +126,7 @@ public class VenPpalVol extends JFrame{
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {    
         this.setVisible(false);
-        vou = new VenOpcUsr();
+        vou = new VenOpcUsr(asociaciones);
         vou.setVisible(true);
     }                                          
 
@@ -133,7 +138,7 @@ public class VenPpalVol extends JFrame{
 
     private void botonNotificacionesActionPerformed(java.awt.event.ActionEvent evt) {       
         this.setVisible(false);
-        vnv = new VenNotificacionesVol(vol);
+        vnv = new VenNotificacionesVol(vol,asociaciones);
         vnv.setVisible(true);
     }                                                   
  

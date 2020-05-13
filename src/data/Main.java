@@ -1,8 +1,6 @@
 package data;
 
-import gui.VenLoginVol;
-import gui.VenModificarVol;
-import gui.VenPpalAdmin;
+import gui.VenOpcUsr;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,18 +13,17 @@ public class Main {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
+        FicUtls fic = new FicUtls();
+        
         File fasoc = new File("src"+File.separator+"ficheros"+File.separator+"asociaciones.txt");
-        File fvol = new File("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");;
         ArrayList<Asociacion> asociaciones = new ArrayList<>();
         deFicheroAListaAsoc(fasoc, asociaciones);
 
-        //pepito 12314
-        VenLoginVol vol = new VenLoginVol(asociaciones);
-        vol.setVisible(true);
-
-//        VenModificarVol vmv = new VenModificarVol(asociaciones.get(0).voluntarios.get(0) , fvol);
-        //vmv.setVisible(true);
-//        fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
+        VenOpcUsr fd = new VenOpcUsr(asociaciones);
+        fd.setVisible(true);
+        
+        fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
+        fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"acompañamientos.txt");
         
     }//psvm
     
