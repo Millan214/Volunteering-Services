@@ -1,5 +1,6 @@
 package data;
 
+import gui.VenLoginVol;
 import gui.VenOpcUsr;
 import java.io.File;
 import java.io.IOException;
@@ -19,11 +20,13 @@ public class Main {
         ArrayList<Asociacion> asociaciones = new ArrayList<>();
         deFicheroAListaAsoc(fasoc, asociaciones);
 
+        
         VenOpcUsr fd = new VenOpcUsr(asociaciones);
         fd.setVisible(true);
         
         fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
         fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"acompañamientos.txt");
+       
         
     }//psvm
     
