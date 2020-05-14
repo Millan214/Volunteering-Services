@@ -1,5 +1,7 @@
 package gui;
 
+import data.Asociacion;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class VenOpcUsr extends javax.swing.JFrame{
@@ -7,12 +9,15 @@ public class VenOpcUsr extends javax.swing.JFrame{
     VenLoginAdmin vla;
     VenLoginUsr vlu;
     VenLoginVol vlv;
+    ArrayList<Asociacion> asociaciones;
     
-    public VenOpcUsr() {
+    public VenOpcUsr(ArrayList<Asociacion> as) {
+        this.asociaciones = as;
         initComponents();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana de selección de usuario");
+        this.setResizable(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -116,13 +121,13 @@ public class VenOpcUsr extends javax.swing.JFrame{
 
     private void botonVoluntarioActionPerformed(java.awt.event.ActionEvent evt) {      
         this.setVisible(false);
-        vlv = new VenLoginVol();
+        vlv = new VenLoginVol(asociaciones);
         vlv.setVisible(true);
     }                                               
 
     private void botonUsrActionPerformed(java.awt.event.ActionEvent evt) {          
         this.setVisible(false);
-        vlu = new VenLoginUsr();
+        vlu = new VenLoginUsr(asociaciones);
         vlu.setVisible(true);
     }                                        
  

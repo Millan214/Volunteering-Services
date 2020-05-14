@@ -1,18 +1,31 @@
 package gui;
 
+import data.Asociacion;
+import data.Voluntario;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 public class VenPpalVol extends JFrame{
     
-    VenOpcUsr vou;
-    VenModificarVol vmv;
-    VenNotificacionesVol vnv;
+    private VenOpcUsr vou;
+    private VenModificarVol vmv;
+    private VenNotificacionesVol vnv;
+    private Voluntario vol;
+    private ArrayList<Asociacion> asociaciones;
+    private File f = new File("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");;
     
-    public VenPpalVol() {
+    public VenPpalVol(Voluntario vol,ArrayList<Asociacion> as) {
+        this.asociaciones = as;
+        this.vol = vol;
         initComponents();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana principal voluntario");
+        this.setResizable(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -48,7 +61,11 @@ public class VenPpalVol extends JFrame{
         botonModificar.setText("Modificar Cuenta");
         botonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonModificarActionPerformed(evt);
+                try {
+                    botonModificarActionPerformed(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -109,19 +126,19 @@ public class VenPpalVol extends JFrame{
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {    
         this.setVisible(false);
-        vou = new VenOpcUsr();
+        vou = new VenOpcUsr(asociaciones);
         vou.setVisible(true);
     }                                          
 
-    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {           
+    private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) throws IOException {           
         this.setVisible(false);
-        vmv = new VenModificarVol();
+        vmv = new VenModificarVol(vol,f);
         vmv.setVisible(true);
     }                                              
 
     private void botonNotificacionesActionPerformed(java.awt.event.ActionEvent evt) {       
         this.setVisible(false);
-        vnv = new VenNotificacionesVol();
+        vnv = new VenNotificacionesVol(vol,asociaciones);
         vnv.setVisible(true);
     }                                                   
  

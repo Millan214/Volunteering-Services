@@ -1,0 +1,3 @@
+1111,"Chema","222","Nombre","Martinez","Calvo",22,"D235432T",fisica,"porai",3123,55555*
+333,"Gallina","sioque","Manolo","Martinez","Sanchez",22,"D235432T",fisica,"porai",3123,55555*
+44444,"Millan213","noteladigo","Millan","Martinez","Arconada",18,"D235432T",intelectual,"micasas",3123,55555*

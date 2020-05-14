@@ -1,17 +1,28 @@
 package gui;
 
+import data.Asociacion;
+import data.Voluntario;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import utilsFicheros.FicUtls;
 
 public class VenLoginVol extends JFrame{
 
-    VenOpcUsr vou;
-    VenPpalVol vpv;
-    
-    public VenLoginVol() {
+    private VenOpcUsr vou;
+    private VenPpalVol vpv;
+    private FicUtls fic;
+    private ArrayList<Asociacion> asociaciones;
+    private Voluntario vol;
+
+    public VenLoginVol(ArrayList<Asociacion> as) {
+        this.asociaciones = as;
         initComponents();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana login voluntario");
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -41,7 +52,11 @@ public class VenLoginVol extends JFrame{
         botonAceptar.setText("ACEPTAR");
         botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAceptarActionPerformed(evt);
+                try {
+                    botonAceptarActionPerformed(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -129,17 +144,29 @@ public class VenLoginVol extends JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) { 
-        this.setVisible(false);
-        vpv = new VenPpalVol();
-        vpv.setVisible(true);
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
+        if (checkLogin()) {
+            this.setVisible(false);
+            vpv = new VenPpalVol(vol,asociaciones);
+            vpv.setVisible(true);
+        }
     }                                            
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {              
         this.setVisible(false);
-        vou = new VenOpcUsr();
+        vou = new VenOpcUsr(asociaciones);
         vou.setVisible(true);
-    }                                          
+    }   
+    
+    private boolean checkLogin() throws IOException {
+        String nom = campoNomCuenta.getText();
+        String pass = campoPasswd.getText();
+        if (asociaciones == null) {
+            JOptionPane.showMessageDialog(null,"LOGIN ERRONEO");
+        }
+        vol = asociaciones.get(0).buscarNomCuenVolunt(nom);
+        return asociaciones.get(0).checkPassVol(vol, pass);
+    }
  
     // Variables declaration - do not modify                     
     private javax.swing.JButton botonAceptar;
@@ -151,5 +178,5 @@ public class VenLoginVol extends JFrame{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration       
-    
+
 }
