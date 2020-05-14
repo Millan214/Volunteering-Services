@@ -1,2 +1,0 @@
-222222>113,en_curso,paseo*
-6776>112,terminado,paseo*
