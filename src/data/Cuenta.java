@@ -1,7 +1,5 @@
 package data;
 
-import java.util.ArrayList;
-
 public class Cuenta {
     
     //DATOS DE LA CUENTA
@@ -68,7 +66,5 @@ public class Cuenta {
     public String getApe2() {
         return ape2;
     }
-    
-    
     
 }

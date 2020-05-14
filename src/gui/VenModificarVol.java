@@ -1,9 +1,14 @@
 package gui;
 
+import data.Asociacion;
+import static data.Usuario.Discapacidad.fisica;
 import data.Voluntario;
+import static data.Voluntario.Estado.disponible;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import utilsFicheros.FicUtls;
 
 public class VenModificarVol extends JFrame{
@@ -13,12 +18,18 @@ public class VenModificarVol extends JFrame{
     private VenPpalVol vpv;
     private Voluntario vol;
     private String linea;
+    private ArrayList<Asociacion> asociaciones;
+    private File facom = new File("src"+File.separator+"ficheros"+File.separator+"acompañamientos.txt");    
+    //El dummy es para pruebas
+    private Voluntario voldummy = new Voluntario(1,"dummy","123","dummy","dummez","payaso",new Asociacion("d","d"),fisica,disponible);
     
-    public VenModificarVol(Voluntario vol) throws IOException {
+    public VenModificarVol(Voluntario vol , ArrayList<Asociacion> as) throws IOException {
+        this.asociaciones = as;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana modificar voluntario");
+        this.setResizable(false);
     }
     
     /**
@@ -247,7 +258,7 @@ public class VenModificarVol extends JFrame{
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {  
         this.setVisible(false);
-        vpv = new VenPpalVol(vol);
+        vpv = new VenPpalVol(vol,asociaciones);
         vpv.setVisible(true);
     }                                          
 
@@ -261,30 +272,33 @@ public class VenModificarVol extends JFrame{
         String cifAsoc = campoCifAsoc.getText();
         String discap = desplegableDiscap.getSelectedItem().toString();
         
-        if (idCuen != null && fic.buscar(vol.getIdCuenta()+"", f) >= 0 ) {
+        if (!idCuen.equals("")) {
             modIdCuen(idCuen);
         }
-        if (nomCuen != null && fic.buscar(vol.getNomCuenta(), f) >= 0 ) {
+        if (!nomCuen.equals("")) {
             modNomCuen(nomCuen);
         }
-        if (passwd != null && fic.buscar(vol.getContraseña(), f) >= 0 ) {
+        if (!passwd.equals("")) {
             modPasswd(passwd);
         }
-        if (nom != null && fic.buscar(vol.getNombre(), f) >= 0 ) {
+        if (!nom.equals("")) {
             modNom(nom);
         }
-        if (ape1 != null && fic.buscar(vol.getApe1(), f) >= 0 ) {
+        if (!ape1.equals("")) {
             modApe1(ape1);
         }
-        if (ape2 != null && fic.buscar(vol.getApe2(), f) >= 0 ) {
+        if (!ape2.equals("")) {
             modApe2(ape2);
         }
-        if (cifAsoc != null && fic.buscar(vol.getCifAsociacion(), f) >= 0 ) {
+        if (!cifAsoc.equals("")) {
             modCifAsoc(cifAsoc);
         }
-        if (discap != null && fic.buscar(vol.getPrefAcomp().toString(), f) >= 0 ) {
+        if (!discap.equals("")) {
             modDiscap(discap);
         }
+        
+        JOptionPane.showMessageDialog(null, "Modificado correctamente");
+        
     }
     
     /**
@@ -297,11 +311,29 @@ public class VenModificarVol extends JFrame{
      * @throws IOException
      */
     private void modIdCuen(String idCuen) throws IOException {
-        if (checkId(idCuen)) {
+        if (!checkId(idCuen)) {
             String lineaOld = linea;
             fic.eliminar(lineaOld, f);
             linea = idCuen + linea.substring( linea.indexOf(",") , linea.length() );
-            fic.añadir(linea, f);        
+            fic.añadir(linea, f); 
+            System.out.println("Linea en voluntarios.txt --> "+linea);
+
+            //Modificar también el id del acompañamiento
+            String idVol = vol.getIdCuenta()+"";
+            String todo = fic.leer(facom);
+            String[] linac = todo.split("\n");
+            String[] idAcom = new String[linac.length];
+            for (int i = 0; i < linac.length; i++) {
+                idAcom[i] = linac[i].substring( 0 , linac[i].indexOf(">") );
+                System.out.println("idAcom: "+idAcom[i]);
+                if (idAcom[i].equals(idVol)) {
+                    String lin = idCuen + linac[i].substring( linac[i].indexOf(">") );
+                    fic.eliminar(linac[i], facom);
+                    fic.añadir(lin, facom);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Esta id ya existe");
         }
     }
 
@@ -514,7 +546,7 @@ public class VenModificarVol extends JFrame{
     private javax.swing.JTextField campoIdCuenta;
     private javax.swing.JTextField campoNomCuenta;
     private javax.swing.JTextField campoNombre;
-    private javax.swing.JTextField campoPasswd;
+    private javax.swing.JPasswordField campoPasswd;
     private javax.swing.JComboBox<String> desplegableDiscap;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
