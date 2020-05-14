@@ -18,8 +18,7 @@ public class Usuario extends Cuenta{
                    String ape1,
                    String ape2,
                    int edad,
-                   Asociacion asociacion,  //La asociación no tendría que haberla puesto porque un usuario no pertenece a una asociacion
-                                           //si no que un usuario elige una asociación, pero ya lo tengo todo estructurado y no me la juego a quitarlo
+                   Asociacion asociacion,
                    Discapacidad tipoDiscap,
                    String direccion,
                    int telMov,

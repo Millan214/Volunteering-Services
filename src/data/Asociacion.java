@@ -1,12 +1,18 @@
 package data;
 
 import data.Usuario.Discapacidad;
-import static data.Usuario.Discapacidad.*;
+import static data.Usuario.Discapacidad.fisica;
+import static data.Usuario.Discapacidad.intelectual;
+import static data.Usuario.Discapacidad.multiple;
+import static data.Usuario.Discapacidad.otras;
+import static data.Usuario.Discapacidad.sensorial;
 import data.Voluntario.Estado;
-import static data.Voluntario.Estado.*;
+import static data.Voluntario.Estado.disponible;
+import static data.Voluntario.Estado.ocupado;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import utilsFicheros.FicUtls;
 
@@ -27,11 +33,6 @@ public class Asociacion {
         deFicheroAListaUsr(fusr);
     }
     
-    /**
-     * Lee el fichero de voluntarios y pasa su contenido a la lista de voluntarios
-     * @param f Fichero de voluntarios
-     * @throws java.io.IOException
-     */
     public void deFicheroAListaVol(File f) throws IOException{
         FicUtls fic = new FicUtls();
         String todo = fic.leer(f);
@@ -45,11 +46,6 @@ public class Asociacion {
         }
     }
     
-    /**
-     * Lee el fichero de usuarios y pasa su contenido a la lista de usuarios
-     * @param f Fichero de ususarios
-     * @throws java.io.IOException
-     */
     public void deFicheroAListaUsr(File f) throws IOException {
         FicUtls fic = new FicUtls();
         String todo = fic.leer(f);
@@ -66,47 +62,6 @@ public class Asociacion {
         }
     }
     
-    public void mostrarUsr(){
-        for (int i = 0; i < usuarios.size(); i++) {
-            System.out.println(usuarios.get(i));
-        }
-    }
-    
-    /**
-     * Muestra los voluntarios por consola
-     */
-    public void mostrarVol(){
-        for (int i = 0; i < voluntarios.size(); i++) {
-            System.out.println(voluntarios.get(i));
-        }
-    }
-    
-    /**
-     * Muestra cada voluntario y sus acompañamientos
-     */
-    public void mostrarVolAcom(){
-        for (int i = 0; i < voluntarios.size(); i++) {
-            System.out.println(voluntarios.get(i));
-            for (int j = 0; j < voluntarios.get(i).acompañamientos.size(); j++) {
-               System.out.println("   "+voluntarios.get(i).acompañamientos.get(j).toString()); 
-            }
-        }
-    }
-    
-    /**
-     * Añade un volutario a la lista de volutarios de la asociacion
-     * @param idCuenta Numero con el que se identifica la cuenta
-     * @param nomCuenta Nombre la cuenta
-     * @param contraseña Contraseña 
-     * @param nombre Nombre del voluntario
-     * @param ape1 Primer apellido
-     * @param ape2 Segundo apellido
-     * @param asociacion Asociación a la que pertenece
-     * @param prefAcomp Preferencia de acomañameiento del voluntario
-     * @param estado Estado del voluntario (disponible , ocupado)
-     * @throws java.io.IOException
-     * @see #voluntarios
-     */
     public void addVol( int idCuenta,
                        String nomCuenta,
                        String contraseña,
@@ -120,21 +75,6 @@ public class Asociacion {
         voluntarios.add( new Voluntario ( idCuenta , nomCuenta , contraseña , nombre , ape1 , ape2 , asociacion , prefAcomp , estado ) );
     }
     
-    /**
-     * Añade un volutario al fichero de volutarios de la asociacion
-     * @param idCuenta Numero con el que se identifica la cuenta
-     * @param nomCuenta Nombre la cuenta
-     * @param contraseña Contraseña 
-     * @param nombre Nombre del voluntario
-     * @param ape1 Primer apellido
-     * @param ape2 Segundo apellido
-     * @param asociacion Asociación a la que pertenece
-     * @param prefAcomp Preferencia de acomañameiento del voluntario
-     * @param estado Estado del voluntario (disponible , ocupado)
-     * @param f Fichero en el que se guardan los voluntarios
-     * @throws java.io.IOException
-     * @see #voluntarios
-     */    
     public void addVol( int idCuenta,
                        String nomCuenta,
                        String contraseña,
@@ -161,21 +101,7 @@ public class Asociacion {
         fic.añadir( todo , f);
     }
     
-    /**
-     * Añade un usuario a la lista de usuarios de la organización
-     * @param idCuenta Numero con el que se idetifica la cuenta del usuario
-     * @param nomCuenta Nombre de la cuena del usuario
-     * @param contraseña Contraseña del usuario
-     * @param nombre Nombre del usuario
-     * @param ape1 Primer apellido del usuario
-     * @param ape2 Segundo apellido del usuario
-     * @param edad Edad del usuario
-     * @param asociacion Asociación de la que quiere recibir el servicio el usuario
-     * @param tipoDiscap Tipo de discapacidad del usuario
-     * @param direccion Dirección postal de la vivienda del usuario
-     * @param telMov Telefono movil del usuario
-     * @param telFij Telefono fijo del usuario
-     */
+    
     public void addUsr( int idCuenta,
                    String nomCuenta,
                    String contraseña,
@@ -193,24 +119,7 @@ public class Asociacion {
                 nombre , ape1 , ape2, edad , asociacion , tipoDiscap , direccion , telMov , telFij ) );
     }
     
-    /**
-     * Añade un usuario a la lista de usuarios de la organización
-     * @param idCuenta Numero con el que se idetifica la cuenta del usuario
-     * @param nomCuenta Nombre de la cuena del usuario
-     * @param contraseña Contraseña del usuario
-     * @param nombre Nombre del usuario
-     * @param ape1 Primer apellido del usuario
-     * @param ape2 Segundo apellido del usuario
-     * @param edad Edad del usuario
-     * @param asociacion Asociación de la que quiere recibir el servicio el usuario
-     * @param tipoDiscap Tipo de discapacidad del usuario
-     * @param direccion Dirección postal de la vivienda del usuario
-     * @param telMov Telefono movil del usuario
-     * @param telFij Telefono fijo del usuario
-     * @param f Fichero en el que están los usuarios de la asociacion
-     * @throws java.io.IOException
-     */
-    public void addUsr( int idCuenta,
+        public void addUsr( int idCuenta,
                    String nomCuenta,
                    String contraseña,
                    String nombre,
@@ -242,11 +151,6 @@ public class Asociacion {
         fic.añadir( todo , f);
     }
         
-    /**
-     * Busca el nombre de la cuenta, y si existe, te devuelve el voluntario al que pertenece ese nombre
-     * @param str Nombre de la cuenta a buscar
-     * @return Voluntario al que pertenece el nombre de cuenta introducido
-     */
     public Voluntario buscarNomCuenVolunt(String str){
         char com = (char)34;// " -> comillas dobles
         str = com+str+com;
@@ -259,12 +163,6 @@ public class Asociacion {
         return null;
     }
     
-    /**
-     * Comrueba la contraseña del Voluntario
-     * @param v Voluntario del que queremos comprobar la contraseña
-     * @param pass Contraseña a comprobar
-     * @return Verdadero si coincide, Falso si no
-     */
     public boolean checkPassVol(Voluntario v , String pass){
         char com = (char)34;// " -> comillas dobles
         pass = com+pass+com;
@@ -278,43 +176,12 @@ public class Asociacion {
         return false;
     }
     
-    public Usuario buscarNomCuenUser(String nom) {
-        char com = (char)34;// " -> comillas dobles
-        nom = com+nom+com;
-        for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios.get(i).getNomCuenta().equals(nom)) {
-                return usuarios.get(i);
-            }
-        }
-        JOptionPane.showMessageDialog(null,"Nombre no encontrado: " + nom);
-        return null;
-    }
-
-    public boolean checkPassUer(Usuario usr, String pass) {
-        char com = (char)34;// " -> comillas dobles
-        pass = com+pass+com;
-        if ( usr == null || pass == null) {
-            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
-            return false;
-        }
-        if (usr.getContraseña().equals(pass)) {
-            return true;
-        }
-        return false;
-    }
-    
-    /**
-     * Muestra por consola los voluntarios
-     */
     public void showVolunt (){
         for (Voluntario voluntario : voluntarios) {
             System.out.println( voluntario );
         }
     }
     
-    /**
-     * Muestra por consola los Voluntarios y sus acompañamientos
-     */
     public void showAcomVolunt (){
         for (int i = 0; i < voluntarios.size(); i++) {
             System.out.println( voluntarios.get(i).getNombre() );
@@ -324,9 +191,6 @@ public class Asociacion {
         }
     }
     
-    /**
-     * Muestra los usuarios por consola
-     */
     public void showUsuarios (){
         for (Usuario usuario : usuarios) {
             System.out.println( usuario );
@@ -338,12 +202,6 @@ public class Asociacion {
         return "Asociacion{" + "nom=" + nom + ", cif=" + cif + '}';
     }
     
-    /**
-     * Pasa la asociacion el formato en el que guardamos las clases
-     * @param separador Caracter separador que se quiere usar
-     * @param fin Caracter que se usa para indicar el fin de una linea
-     * @return Cadena formateada para introducir en fichero
-     */
     public String toStringFichero(String separador , String fin){
         char com = (char)34;
         return com + this.nom + com + separador + com + this.cif + com + fin;
@@ -357,10 +215,7 @@ public class Asociacion {
         return cif;
     }
 
-    /**
-     * Pasa a discapacidad una string metida 
-     */
-    private Discapacidad toDiscapacidad(String string) {
+    public Discapacidad toDiscapacidad(String string) {
         string = string.toLowerCase();
         switch(string){
             case "fisica":
@@ -378,9 +233,6 @@ public class Asociacion {
         return null;
     }
 
-    /**
-     * Pasa a estado una cadena introducida, en caso de que esta no coincida con ninguno de los estados, devoverá null
-     */
     private Estado toEstado(String string) {
         string = string.trim().toLowerCase();
         switch(string){
@@ -392,5 +244,4 @@ public class Asociacion {
         }
         return null;
     } 
-    
 }

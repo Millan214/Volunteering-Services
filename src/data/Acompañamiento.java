@@ -3,36 +3,26 @@ package data;
 public class Acompañamiento {
 
     private int id;
-    private estadoAcom estadoAcom;
-    private tipoAcom tipo;
+    private EstadoAcom estadoAcom;
     private int clasificacion = -1;
     
-    public enum tipoAcom{ paseo , visitas_medicas , visitas_culturales , otros };
-    public enum estadoAcom{ en_curso , terminado };
+    public enum EstadoAcom{ en_curso , terminado };
 
-    public Acompañamiento(int id, estadoAcom estadoAcom , tipoAcom tipoAcom) {
+    public Acompañamiento(int id, EstadoAcom estadoAcom) {
         this.id = id;
         this.estadoAcom = estadoAcom;
-        this.tipo=tipoAcom;
     }
-    
+
     @Override
     public String toString() {
-        return "Acompañamiento { id="+this.id+", estadoAcom="+this.estadoAcom+", tipoAcom="+this.tipo+" }";
+        return "Acompa\u00f1amiento{" + "id=" + id + ", estadoAcom=" + estadoAcom + ", calificacion=" + clasificacion + '}';
     }
     
-    /**
-     * Pasa el acompañamiento a una string con un formato para guardarla en un fichero
-     * @param idCuen Id de cuenta del Voluntario
-     * @param separador Símbolo que hace de separador en el fichero
-     * @param fin Símbolo que hace de final de linea en el fichero
-     * @return Cadena a escribir en el fichero
-     */
     public String toStringFichero(int idCuen , String separador , String fin){
         if (clasificacion == -1) {
-            return idCuen + ">" + id + separador + estadoAcom + separador + tipo + fin ;
+            return idCuen + ">" + id + separador + estadoAcom + fin ;
         }
-        return idCuen + ">" + id + separador + estadoAcom + separador + tipo + separador + clasificacion + fin;
+        return idCuen + ">" + id + separador + estadoAcom + separador + clasificacion + fin;
     }
 
     public int getId() {
@@ -43,11 +33,11 @@ public class Acompañamiento {
         this.id = id;
     }
 
-    public estadoAcom getEstadoAcom() {
+    public EstadoAcom getEstadoAcom() {
         return estadoAcom;
     }
 
-    public void setEstadoAcom(estadoAcom estadoAcom) {
+    public void setEstadoAcom(EstadoAcom estadoAcom) {
         this.estadoAcom = estadoAcom;
     }
 

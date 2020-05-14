@@ -1,4 +1,4 @@
+7890,"pepito","12314","pruebaNom","garcias","martinez","pruebaCifAsoc",fisica,disponible*
 1232123,"marialoca","234432","pruebaNom","martinez","lopez","D235432T",fisica,ocupado*
 111111111,"NombrePrueba","noteladigo","Millan","pruebaape1","Arconada","D235432T",otras,ocupado*
 222222,"Alberti","sandia","Alberto","Sanchez","Sanchez","uncif",multiple,disponible*
-4554,"Juan","12314","pruebaNom","garcias","martinez","pruebaCifAsoc",fisica,disponible*

@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 
 /**
@@ -12,13 +13,18 @@ import javax.swing.JFrame;
  * @author abelr
  */
 public class VenDelVol extends JFrame{
+    private VenOpcUsr vou;
     public VenDelVol() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventala eliminar voluntario");
     }
-
+    private void botonSalirActionPerformed(ActionEvent evt) {
+    this.setVisible(false);
+    vou = new VenOpcUsr();
+    vou.setVisible(true);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -53,6 +59,11 @@ public class VenDelVol extends JFrame{
         botonSalir.setBackground(new java.awt.Color(240, 230, 216));
         botonSalir.setForeground(new java.awt.Color(0, 0, 0));
         botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));

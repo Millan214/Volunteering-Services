@@ -6,15 +6,61 @@
 package gui;
 
 import data.Asociacion;
+import data.Usuario;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.JFrame;
 
 
 public class VenAdminAddUsr extends JFrame{
+    
+private VenOpcUsr vou;
+private VenAdminAddUsr vaau;
+private VenPpalAdmin vpa;
+private Asociacion as;
+private File fuser = new File("src"+File.separator+"ficheros"+File.separator+"usuarios.txt");
     public VenAdminAddUsr(Asociacion as) {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana añadir Usuario");
+    
+    }
+    
+        private void botonSalirActionPerformed(ActionEvent evt)
+                throws IOException {
+            this.setVisible(false);
+            vou = new VenOpcUsr();
+            vou.setVisible(true);
+            }
+
+       private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
+        
+        this.setVisible(false);
+        vpa = new VenPpalAdmin(this.as);
+        vpa.setVisible(true);
+        
+        
+        String nomCuen = campoNomCuenta.getText();
+        String pass = campoPassw.getText();
+        String nom = campoNombre.getText();
+        String ape1 = campoApellido1.getText();
+        String ape2 = campoApellido2.getText();
+        String idCuenta = campoIdUsr.getText();
+        int idcuen= Integer.parseInt(idCuenta);
+        String dir = campoDireccion.getText();
+        String movilS = campoMovil.getText();
+        int movil= Integer.parseInt(movilS);
+        String edadS = campoEdad.getText();
+        int edad= Integer.parseInt(edadS);
+        String fijoS = campoFijo.getText();
+        int fijo= Integer.parseInt(fijoS);
+        String disc = (String) jComboBoxDiscap.getSelectedItem();
+        Usuario.Discapacidad d = as.toDiscapacidad(disc);
+       
+        campoFijo = new javax.swing.JTextField();
+        as.addUsr(idcuen, nomCuen, movilS, nom, ape1, ape2, edad, as, d, dir, ERROR, fijo, fuser);
     }
 
     @SuppressWarnings("unchecked")
@@ -65,7 +111,12 @@ public class VenAdminAddUsr extends JFrame{
         botonEnviar.setText("ENVIAR");
         botonEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEnviarActionPerformed(evt);
+                try {
+                    botonEnviarActionPerformed(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            
             }
         });
 
@@ -131,7 +182,7 @@ public class VenAdminAddUsr extends JFrame{
 
         jComboBoxDiscap.setBackground(new java.awt.Color(216, 225, 240));
         jComboBoxDiscap.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBoxDiscap.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxDiscap.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  "fisica" , "sensorial" , "intelectual" , "multiple" , "otras"  }));
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -157,6 +208,16 @@ public class VenAdminAddUsr extends JFrame{
         botonSalir.setBackground(new java.awt.Color(240, 230, 216));
         botonSalir.setForeground(new java.awt.Color(0, 0, 0));
         botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    botonSalirActionPerformed(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -285,10 +346,7 @@ public class VenAdminAddUsr extends JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
- 
+
     // Variables declaration - do not modify                     
     private javax.swing.JButton botonEnviar;
     private javax.swing.JButton botonSalir;
