@@ -18,6 +18,9 @@ public class VenPpalAdmin extends JFrame{
     
     private Asociacion as;
     private VenAdminAddUsr vaau;
+    private VenAdminAddVol vaav;
+    private VenDelUser vdu;
+    private VenDelVol vdv;
     private VenOpcUsr vou;
     
     public VenPpalAdmin(Asociacion as) {
@@ -33,13 +36,26 @@ public class VenPpalAdmin extends JFrame{
         vaau = new VenAdminAddUsr(this.as);
         vaau.setVisible(true);
     }
-    
+    private void botonAñdVolActionPerformed(ActionEvent evt) {
+        this.setVisible(false);
+        vaav = new VenAdminAddVol(this.as);
+        vaav.setVisible(true);
+    }
     private void botonSalirActionPerformed(ActionEvent evt) {
         this.setVisible(false);
         vou = new VenOpcUsr();
         vou.setVisible(true);
     }
-    
+      private void botonDelUserActionPerformed(ActionEvent evt) {
+        this.setVisible(false);
+        vdu = new VenDelUser();
+        vdu.setVisible(true);
+    }
+    private void botonDelVolActionPerformed(ActionEvent evt) {
+    this.setVisible(false);
+    vdv = new VenDelVol();
+    vdv.setVisible(true);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -81,6 +97,11 @@ public class VenPpalAdmin extends JFrame{
         botonDelVol.setBackground(new java.awt.Color(216, 225, 240));
         botonDelVol.setForeground(new java.awt.Color(0, 0, 0));
         botonDelVol.setText("Voluntario");
+        botonDelVol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDelVolActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel6.setText("Eliminar");
@@ -88,10 +109,20 @@ public class VenPpalAdmin extends JFrame{
         botonDelUser.setBackground(new java.awt.Color(216, 225, 240));
         botonDelUser.setForeground(new java.awt.Color(0, 0, 0));
         botonDelUser.setText("Usuario");
+        botonDelUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDelUserActionPerformed(evt);
+            }
+        });
 
         botonAñdVol.setBackground(new java.awt.Color(216, 225, 240));
         botonAñdVol.setForeground(new java.awt.Color(0, 0, 0));
         botonAñdVol.setText("Voluntario");
+        botonAñdVol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAñdVolActionPerformed(evt);
+            }
+        });
 
         botonSalir.setBackground(new java.awt.Color(240, 230, 216));
         botonSalir.setForeground(new java.awt.Color(0, 0, 0));

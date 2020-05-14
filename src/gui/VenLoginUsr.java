@@ -1,25 +1,17 @@
 package gui;
 
-import data.Asociacion;
-import data.Usuario;
-import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class VenLoginUsr extends JFrame{
     
-    private VenPpalUsr vpu;
-    private VenOpcUsr vou;
-    private Usuario usr;
-    private ArrayList<Asociacion> asociaciones;
+    VenPpalUsr vpu;
+    VenOpcUsr vou;
     
-    public VenLoginUsr(ArrayList<Asociacion> as) {
-        this.asociaciones = as;
+    public VenLoginUsr() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana login usuario");
-        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -153,29 +145,17 @@ public class VenLoginUsr extends JFrame{
         pack();
     }// </editor-fold>                        
 
-    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {        
-        if (checkLogin()) {
-            this.setVisible(false);
-            vpu = new VenPpalUsr(usr,asociaciones);
-            vpu.setVisible(true);        
-        }
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        this.setVisible(false);
+        vpu = new VenPpalUsr();
+        vpu.setVisible(true);
     }                                            
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {                                           
         this.setVisible(false);
-        vou = new VenOpcUsr(asociaciones);
+        vou = new VenOpcUsr();
         vou.setVisible(true);
-    }  
-    
-    private boolean checkLogin() {
-        String nom = this.campoNomCuenta.getText();
-        String pass = campoPasswd.getText();
-        if (asociaciones == null) {
-            JOptionPane.showMessageDialog(null,"LOGIN ERRONEO");
-        }
-        usr = asociaciones.get(0).buscarNomCuenUser(nom);
-        return asociaciones.get(0).checkPassUer(usr, pass);        
-    }
+    }                                          
  
     // Variables declaration - do not modify                     
     private javax.swing.JButton botonAceptar;
@@ -189,5 +169,4 @@ public class VenLoginUsr extends JFrame{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration    
-
 }

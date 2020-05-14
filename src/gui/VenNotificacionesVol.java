@@ -1,24 +1,19 @@
 package gui;
 
-import data.Asociacion;
 import data.Voluntario;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class VenNotificacionesVol extends JFrame{
     
     VenPpalVol vpv;
     Voluntario vol;
-    ArrayList<Asociacion> asociaciones;
     
-    public VenNotificacionesVol(Voluntario vol, ArrayList<Asociacion> as) {
-        this.asociaciones = as;
+    public VenNotificacionesVol(Voluntario vol) {
         this.vol = vol;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana de notificaciones");
-        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -115,7 +110,7 @@ public class VenNotificacionesVol extends JFrame{
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) { 
         this.setVisible(false);
-        vpv = new VenPpalVol(vol,asociaciones);
+        vpv = new VenPpalVol(vol);
         vpv.setVisible(true);
     }                                          
 

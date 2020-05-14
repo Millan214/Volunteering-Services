@@ -5,7 +5,6 @@ import data.Voluntario;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import utilsFicheros.FicUtls;
 
 public class VenLoginVol extends JFrame{
@@ -15,14 +14,20 @@ public class VenLoginVol extends JFrame{
     private FicUtls fic;
     private ArrayList<Asociacion> asociaciones;
     private Voluntario vol;
-
-    public VenLoginVol(ArrayList<Asociacion> as) {
-        this.asociaciones = as;
+    
+    public VenLoginVol() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana login voluntario");
-        this.setResizable(false);
+    }
+
+    public VenLoginVol(ArrayList<Asociacion> asociaciones) {
+        initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Ventana login voluntario");
+        this.asociaciones = asociaciones;
     }
 
     @SuppressWarnings("unchecked")
@@ -147,25 +152,23 @@ public class VenLoginVol extends JFrame{
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         if (checkLogin()) {
             this.setVisible(false);
-            vpv = new VenPpalVol(vol,asociaciones);
+            vpv = new VenPpalVol(vol);
             vpv.setVisible(true);
         }
     }                                            
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {              
         this.setVisible(false);
-        vou = new VenOpcUsr(asociaciones);
+        vou = new VenOpcUsr();
         vou.setVisible(true);
     }   
     
     private boolean checkLogin() throws IOException {
-        String nom = campoNomCuenta.getText();
-        String pass = campoPasswd.getText();
-        if (asociaciones == null) {
-            JOptionPane.showMessageDialog(null,"LOGIN ERRONEO");
-        }
-        vol = asociaciones.get(0).buscarNomCuenVolunt(nom);
-        return asociaciones.get(0).checkPassVol(vol, pass);
+        String nom = this.campoNomCuenta.getText();
+        String pass = this.campoPasswd.getText();
+        System.out.println(asociaciones.get(0));
+        vol = this.asociaciones.get(0).buscarNomCuenVolunt(nom);
+        return this.asociaciones.get(0).checkPassVol(vol, pass);
     }
  
     // Variables declaration - do not modify                     
