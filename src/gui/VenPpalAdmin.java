@@ -7,7 +7,7 @@ package gui;
 
 import data.Asociacion;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -16,6 +16,7 @@ import javax.swing.JFrame;
  */
 public class VenPpalAdmin extends JFrame{
     
+    private ArrayList<Asociacion> asociaciones;
     private Asociacion as;
     private VenAdminAddUsr vaau;
     private VenAdminAddVol vaav;
@@ -23,7 +24,8 @@ public class VenPpalAdmin extends JFrame{
     private VenDelVol vdv;
     private VenOpcUsr vou;
     
-    public VenPpalAdmin(Asociacion as) {
+    public VenPpalAdmin(Asociacion as , ArrayList<Asociacion> asoc) {
+        this.asociaciones = asoc;
         this.as = as;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -33,28 +35,32 @@ public class VenPpalAdmin extends JFrame{
     
     private void botonAñdUserActionPerformed(ActionEvent evt) {
         this.setVisible(false);
-        vaau = new VenAdminAddUsr(this.as);
+        vaau = new VenAdminAddUsr(this.as , this.asociaciones);
         vaau.setVisible(true);
     }
+    
     private void botonAñdVolActionPerformed(ActionEvent evt) {
         this.setVisible(false);
-        vaav = new VenAdminAddVol(this.as);
+        vaav = new VenAdminAddVol(this.as , this.asociaciones);
         vaav.setVisible(true);
     }
+    
     private void botonSalirActionPerformed(ActionEvent evt) {
         this.setVisible(false);
-        vou = new VenOpcUsr();
+        vou = new VenOpcUsr(this.asociaciones);
         vou.setVisible(true);
     }
-      private void botonDelUserActionPerformed(ActionEvent evt) {
+    
+    private void botonDelUserActionPerformed(ActionEvent evt) {
         this.setVisible(false);
-        vdu = new VenDelUser();
+        vdu = new VenDelUser(this.asociaciones , this.as);
         vdu.setVisible(true);
     }
+      
     private void botonDelVolActionPerformed(ActionEvent evt) {
-    this.setVisible(false);
-    vdv = new VenDelVol();
-    vdv.setVisible(true);
+        this.setVisible(false);
+        vdv = new VenDelVol(this.asociaciones , this.as);
+        vdv.setVisible(true);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          

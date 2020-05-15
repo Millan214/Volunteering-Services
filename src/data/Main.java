@@ -13,17 +13,14 @@ public class Main {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        FicUtls fic = new FicUtls();
         
         File fasoc = new File("src"+File.separator+"ficheros"+File.separator+"asociaciones.txt");
         ArrayList<Asociacion> asociaciones = new ArrayList<>();
         deFicheroAListaAsoc(fasoc, asociaciones);
 
-        VenOpcUsr fd = new VenOpcUsr(asociaciones);
-        fd.setVisible(true);
+        VenOpcUsr v = new VenOpcUsr(asociaciones);
+        v.setVisible(true);
         
-        fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
-        fic.ejecutar("src"+File.separator+"ficheros"+File.separator+"acompañamientos.txt");
         
     }//psvm
     

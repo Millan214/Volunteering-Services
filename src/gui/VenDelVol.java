@@ -5,7 +5,9 @@
  */
 package gui;
 
+import data.Asociacion;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -13,18 +15,27 @@ import javax.swing.JFrame;
  * @author abelr
  */
 public class VenDelVol extends JFrame{
-    private VenOpcUsr vou;
-    public VenDelVol() {
+    
+    private VenPpalAdmin vpa;
+    private ArrayList<Asociacion> asociaciones;
+    private Asociacion as;
+    
+    public VenDelVol(ArrayList<Asociacion> asoc , Asociacion as) {
+        this.as = as;
+        this.asociaciones = asoc;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventala eliminar voluntario");
+        this.setResizable(false);
     }
+    
     private void botonSalirActionPerformed(ActionEvent evt) {
-    this.setVisible(false);
-    vou = new VenOpcUsr();
-    vou.setVisible(true);
+        this.setVisible(false);
+        vpa = new VenPpalAdmin(this.as , this.asociaciones);
+        vpa.setVisible(true);
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {

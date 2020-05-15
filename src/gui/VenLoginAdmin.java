@@ -1,24 +1,27 @@
 package gui;
 
 import data.Asociacion;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class VenLoginAdmin extends JFrame{
     
    private VenPpalAdmin vpa; 
    private Asociacion as;
-    public VenLoginAdmin() {
+   private ArrayList<Asociacion> asociaciones;
+   
+    public VenLoginAdmin(ArrayList<Asociacion> as) {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana de selección de organización para el Administrador");
+        this.setResizable(false);
     }
     
     
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-        
-        vpa = new VenPpalAdmin(this.as);
+        vpa = new VenPpalAdmin(this.as,this.asociaciones);
         vpa.setVisible(true);
     }    
 

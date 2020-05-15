@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 
 public class VenOpcUsr extends javax.swing.JFrame{
     
-    VenLoginAdmin vla;
-    VenLoginUsr vlu;
-    VenLoginVol vlv;
-    ArrayList<Asociacion> asociaciones;
+    private VenLoginAdmin vla;
+    private VenLoginUsr vlu;
+    private VenLoginVol vlv;
+    private ArrayList<Asociacion> asociaciones;
     
     public VenOpcUsr(ArrayList<Asociacion> as) {
         this.asociaciones = as;
@@ -115,7 +115,7 @@ public class VenOpcUsr extends javax.swing.JFrame{
 
     private void botonAdminActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
-        vla = new VenLoginAdmin();
+        vla = new VenLoginAdmin(asociaciones);
         vla.setVisible(true);
     }                                          
 

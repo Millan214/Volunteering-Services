@@ -6,36 +6,33 @@
 package gui;
 
 import data.Asociacion;
-import data.Usuario;
 import data.Usuario.Discapacidad;
 import data.Voluntario;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 
 public class VenAdminAddVol extends JFrame{
-    
-private VenOpcUsr vou;
-private VenAdminAddUsr vaau;
-private VenPpalAdmin vpa;
-private Asociacion as;
-private File fvol = new File("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
-    public VenAdminAddVol(Asociacion as) {
+
+    private VenPpalAdmin vpa;
+    private Asociacion as;
+    private ArrayList<Asociacion> asociaciones;
+    private File fvol = new File("src"+File.separator+"ficheros"+File.separator+"voluntarios.txt");
+
+    public VenAdminAddVol(Asociacion as , ArrayList<Asociacion> asoc) {
+        this.asociaciones = asoc;
         this.as = as;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana añadir Voluntario");
+        this.setResizable(false);
     }
-           private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
-        
-        this.setVisible(false);
-        vpa = new VenPpalAdmin(this.as);
-        vpa.setVisible(true);
-        
-        
+    
+    private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         String nomCuen = campoNomCuenta.getText();
         String pass = campoPassw.getText();
         String nom = campoNombre.getText();
@@ -47,10 +44,11 @@ private File fvol = new File("src"+File.separator+"ficheros"+File.separator+"vol
         Discapacidad d = as.toDiscapacidad(disc);
         as.addVol(idcuen, nomCuen, ape2, nom, ape1, ape2, as, d, Voluntario.Estado.ocupado, fvol);
     }
+    
     private void botonSalirActionPerformed(ActionEvent evt) throws IOException {
         this.setVisible(false);
-        vou = new VenOpcUsr();
-        vou.setVisible(true);
+        vpa = new VenPpalAdmin(this.as , this.asociaciones);
+        vpa.setVisible(true);
     }
     
     @SuppressWarnings("unchecked")

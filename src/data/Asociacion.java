@@ -360,7 +360,7 @@ public class Asociacion {
     /**
      * Pasa a discapacidad una string metida 
      */
-    private Discapacidad toDiscapacidad(String string) {
+    public Discapacidad toDiscapacidad(String string) {
         string = string.toLowerCase();
         switch(string){
             case "fisica":

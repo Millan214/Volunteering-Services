@@ -10,37 +10,35 @@ import data.Usuario;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 
 public class VenAdminAddUsr extends JFrame{
     
-private VenOpcUsr vou;
-private VenAdminAddUsr vaau;
-private VenPpalAdmin vpa;
-private Asociacion as;
-private File fuser = new File("src"+File.separator+"ficheros"+File.separator+"usuarios.txt");
-    public VenAdminAddUsr(Asociacion as) {
+    private VenAdminAddUsr vaau;
+    private VenPpalAdmin vpa;
+    private Asociacion as;
+    private File fuser = new File("src"+File.separator+"ficheros"+File.separator+"usuarios.txt");
+    private ArrayList<Asociacion> asociaciones;
+    
+    public VenAdminAddUsr(Asociacion as , ArrayList<Asociacion> asoc) {
+        this.as = as;
+        this.asociaciones = asoc;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setTitle("Ventana añadir Usuario");
-    
+        this.setResizable(false);
     }
     
-        private void botonSalirActionPerformed(ActionEvent evt)
-                throws IOException {
-            this.setVisible(false);
-            vou = new VenOpcUsr();
-            vou.setVisible(true);
-            }
-
-       private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
-        
+    private void botonSalirActionPerformed(ActionEvent evt) throws IOException {
         this.setVisible(false);
-        vpa = new VenPpalAdmin(this.as);
+        vpa = new VenPpalAdmin(this.as , this.asociaciones);
         vpa.setVisible(true);
-        
+    }
+
+    private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         
         String nomCuen = campoNomCuenta.getText();
         String pass = campoPassw.getText();
