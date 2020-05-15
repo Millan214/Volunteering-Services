@@ -8,9 +8,8 @@ import utilsFicheros.FicUtls;
 
 public class App {
     /**
-     * @author Millan & Abel
-     * @param args
-     * @throws java.io.IOException
+     * @author Millan
+     * @throws java.io.IOException Cuando ocurre un error de entrada-salida
      */
     public App() throws IOException {
         

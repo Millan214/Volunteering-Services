@@ -327,6 +327,7 @@ public class VenModificarUsr extends JFrame{
         }
         
         JOptionPane.showMessageDialog(null, "Modificado correctamente");
+        JOptionPane.showMessageDialog(null, "Reinicia la aplicación para aplicar los cambios");
         
     }    
     

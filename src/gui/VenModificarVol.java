@@ -37,8 +37,8 @@ public class VenModificarVol extends JFrame{
      * @author Millan
      * @param vol El voluntario a modificar
      * @param f Fichero de voluntarios
-     * @throws java.io.IOException
-     * @see #fic.buscarEnLinea(String , File);
+     * @throws java.io.IOException Cuando tiene problemas con el fichero de voluntarios
+     * @see #fic
      */
     public VenModificarVol(Voluntario vol , File f) throws IOException {
         initComponents();
@@ -298,6 +298,7 @@ public class VenModificarVol extends JFrame{
         }
         
         JOptionPane.showMessageDialog(null, "Modificado correctamente");
+        JOptionPane.showMessageDialog(null, "Reinicia la aplicación para aplicar los cambios");
         
     }
     

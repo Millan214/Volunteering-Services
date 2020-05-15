@@ -106,7 +106,7 @@ public class Voluntario extends Cuenta{
      * @param estado Estado del acompañamiento
      * @param tip Tipo de acompañamiento
      * @param facom Fichero en el que etan los acompañamientos
-     * @throws java.io.IOException
+     * @throws java.io.IOException Cuando tiene problemas con el fichero de acompañameintos
      */    
     public void addAcom( int id , estadoAcom estado ,tipoAcom tip, File facom) throws IOException{
         acompañamientos.add( new Acompañamiento( id , estado , tip) );

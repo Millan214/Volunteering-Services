@@ -30,7 +30,7 @@ public class Asociacion {
     /**
      * Lee el fichero de voluntarios y pasa su contenido a la lista de voluntarios
      * @param f Fichero de voluntarios
-     * @throws java.io.IOException
+     * @throws java.io.IOException Cuando tiene problemas con el fichero de Voluntarios
      */
     public void deFicheroAListaVol(File f) throws IOException{
         FicUtls fic = new FicUtls();
@@ -48,7 +48,7 @@ public class Asociacion {
     /**
      * Lee el fichero de usuarios y pasa su contenido a la lista de usuarios
      * @param f Fichero de ususarios
-     * @throws java.io.IOException
+     * @throws java.io.IOException Cuando tiene problemas con el fichero de usuarios
      */
     public void deFicheroAListaUsr(File f) throws IOException {
         FicUtls fic = new FicUtls();
@@ -104,7 +104,6 @@ public class Asociacion {
      * @param asociacion Asociación a la que pertenece
      * @param prefAcomp Preferencia de acomañameiento del voluntario
      * @param estado Estado del voluntario (disponible , ocupado)
-     * @throws java.io.IOException
      * @see #voluntarios
      */
     public void addVol( int idCuenta,
@@ -132,7 +131,7 @@ public class Asociacion {
      * @param prefAcomp Preferencia de acomañameiento del voluntario
      * @param estado Estado del voluntario (disponible , ocupado)
      * @param f Fichero en el que se guardan los voluntarios
-     * @throws java.io.IOException
+     * @throws java.io.IOException Cuando tiene problemas con el fichero de voluntarios
      * @see #voluntarios
      */    
     public void addVol( int idCuenta,
@@ -208,7 +207,7 @@ public class Asociacion {
      * @param telMov Telefono movil del usuario
      * @param telFij Telefono fijo del usuario
      * @param f Fichero en el que están los usuarios de la asociacion
-     * @throws java.io.IOException
+     * @throws java.io.IOException Cuando tiene problemas con el fichero de usuarios
      */
     public void addUsr( int idCuenta,
                    String nomCuenta,
@@ -358,7 +357,9 @@ public class Asociacion {
     }
 
     /**
-     * Pasa a discapacidad una string metida 
+     * Pasa una string a enumerado de discapadicad
+     * @param string Texto a comparar
+     * @return la discapacidad
      */
     public Discapacidad toDiscapacidad(String string) {
         string = string.toLowerCase();
