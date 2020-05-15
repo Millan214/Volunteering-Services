@@ -13,6 +13,11 @@ public class FicUtls {
     public FicUtls() {
     }
     
+    /**
+     * Muestra un fichero
+     * @param ruta Ruta del fichero a mostrar
+     * @throws IOException 
+     */
     public void ejecutar(String ruta) throws IOException{
         new ProcessBuilder().command("cmd.exe","/c",ruta).start();
     }
