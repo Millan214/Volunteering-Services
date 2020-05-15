@@ -3,14 +3,17 @@ package gui;
 import data.Asociacion;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class VenLoginAdmin extends JFrame{
     
    private VenPpalAdmin vpa; 
    private Asociacion as;
    private ArrayList<Asociacion> asociaciones;
+   private final String PASSWORD = "@dmin";
    
     public VenLoginAdmin(ArrayList<Asociacion> as) {
+        this.asociaciones = as;
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -18,13 +21,60 @@ public class VenLoginAdmin extends JFrame{
         this.setResizable(false);
     }
     
-    
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-        vpa = new VenPpalAdmin(this.as,this.asociaciones);
-        vpa.setVisible(true);
+        String cif = this.campoCif.getText();
+        String nombre = this.campoNombre.getText();
+        String pass = this.campoPasswd.getText();
+        
+        if (checkLogin( cif , nombre , pass )) {
+           this.setVisible(false);
+            vpa = new VenPpalAdmin(this.as,this.asociaciones);
+            vpa.setVisible(true); 
+        }
+        
     }    
 
+    /**
+     * Comprueba que la asociación existen y que la contraseña del admin es la correcta
+     * @param cif Cif introducido por el usuario
+     * @param nombre Nombre introducido por el usuario
+     * @param pass Contraseña del admin
+     * @return true si la asociación es correcta
+     */
+    private boolean checkLogin(String cif, String nombre, String pass) {
+        char com = (char)34;// " -> comillas dobles
+        String[] cifAsoc = new String[asociaciones.size()];
+        String[] nomAsoc = new String[asociaciones.size()];
+        for (int i = 0; i < asociaciones.size(); i++) {
+            cifAsoc[i] = asociaciones.get(i).getCif();
+            nomAsoc[i] = asociaciones.get(i).getNom();
+            
+            //Tengo que ponerle las comillas por como se guarda en el fichero :)
+            cif = com+cif+com;
+            nombre = com+nombre+com;
+            
+            if (cifAsoc[i].equals(cif)) {
+                if (nomAsoc[i].equals(nombre)) {
+                    if (pass.equals(PASSWORD)) {
+                        this.as = getAsoc( cif );
+                        return true;                        
+                    }
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(null,"Login erroneo");
+        return false;
+    }
+    
+    private Asociacion getAsoc(String cif) {
+        for (int i = 0; i < asociaciones.size(); i++) {
+            if (asociaciones.get(i).getCif().equals(cif)) {
+                return asociaciones.get(i);
+            }
+        }
+        return null;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -149,4 +199,5 @@ public class VenLoginAdmin extends JFrame{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration      
+
 }

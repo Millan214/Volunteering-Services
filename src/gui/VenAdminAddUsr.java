@@ -32,12 +32,18 @@ public class VenAdminAddUsr extends JFrame{
         this.setResizable(false);
     }
     
+    
     private void botonSalirActionPerformed(ActionEvent evt) throws IOException {
         this.setVisible(false);
         vpa = new VenPpalAdmin(this.as , this.asociaciones);
         vpa.setVisible(true);
     }
 
+    /**
+     * Boton que añade un usuario
+     * @param evt evento
+     * @throws IOException 
+     */
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) throws IOException { 
         
         String nomCuen = campoNomCuenta.getText();
